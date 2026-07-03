@@ -127,12 +127,12 @@ export default function ContactPage() {
   ]
 
   const quickContacts = [
-    { name: 'WhatsApp community', desc: 'Announcement channels & mixers.', cta: 'Join WhatsApp', icon: <MessageSquare className="w-5 h-5 text-[#25D366]" /> },
-    { name: 'Discord community', desc: 'Code debugging & Git branches.', cta: 'Join Discord', icon: <MessageSquare className="w-5 h-5 text-[#5865F2]" /> },
-    { name: 'LinkedIn page', desc: 'Project updates & hiring matches.', cta: 'Follow Page', icon: <Globe className="w-5 h-5 text-[#0A66C2]" /> },
-    { name: 'Email support', desc: 'Send general business inquiries.', cta: 'Send Email', icon: <Mail className="w-5 h-5 text-primary" /> },
-    { name: 'Instagram profile', desc: 'Offline sittings & group highlights.', cta: 'Follow Instagram', icon: <Sparkles className="w-5 h-5 text-accent-amber" /> },
-    { name: 'YouTube channel', desc: 'Bootcamp tutorials & speakers.', cta: 'Subscribe Channel', icon: <Video className="w-5 h-5 text-[#FF0000]" /> },
+    { name: 'WhatsApp community', desc: 'Announcement channels & mixers.', cta: 'Join WhatsApp', icon: <MessageSquare className="w-5 h-5 text-[#25D366]" />, href: 'https://whatsapp.com/channel/0029VbAjqOJFXUuja0h4G00j' },
+    { name: 'Discord community', desc: 'Code debugging & Git branches.', cta: 'Join Discord', icon: <MessageSquare className="w-5 h-5 text-[#5865F2]" />, href: '#' },
+    { name: 'LinkedIn page', desc: 'Project updates & hiring matches.', cta: 'Follow Page', icon: <Globe className="w-5 h-5 text-[#0A66C2]" />, href: 'https://www.linkedin.com/company/codequesters' },
+    { name: 'Email support', desc: 'Send general business inquiries.', cta: 'Send Email', icon: <Mail className="w-5 h-5 text-primary" />, href: 'mailto:hello@codequesters.dev' },
+    { name: 'Instagram profile', desc: 'Offline sittings & group highlights.', cta: 'Follow Instagram', icon: <Sparkles className="w-5 h-5 text-accent-amber" />, href: 'https://www.instagram.com/codequesters' },
+    { name: 'YouTube channel', desc: 'Bootcamp tutorials & speakers.', cta: 'Subscribe Channel', icon: <Video className="w-5 h-5 text-[#FF0000]" />, href: 'https://youtube.com/@code_questers?si=oqZMtOfXWaj2u-QA' },
   ]
 
   const partnerTypes = [
@@ -292,19 +292,26 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-6 gap-4">
             {quickContacts.map((contact, idx) => (
-              <div key={idx} className="card-base bg-card border border-border p-4 hover:border-primary/20 transition-all duration-300 flex flex-col justify-between text-center" hover-translate="y-1">
+              <a
+                key={idx}
+                href={contact.href}
+                target={contact.href.startsWith('http') ? '_blank' : undefined}
+                rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="card-base bg-card border border-border p-4 hover:border-primary/20 transition-all duration-300 flex flex-col justify-between text-center cursor-pointer group"
+                hover-translate="y-1"
+              >
                 <div className="flex flex-col items-center">
-                  <div className="bg-background-secondary p-2 rounded-md border border-border mb-3 w-fit">
+                  <div className="bg-background-secondary p-2 rounded-md border border-border mb-3 w-fit group-hover:border-primary/30 transition-colors">
                     {contact.icon}
                   </div>
                   <h4 className="text-xs font-semibold text-text-primary mb-1 capitalize leading-snug">{contact.name}</h4>
                   <p className="text-[10px] text-text-secondary leading-normal font-normal mb-4">{contact.desc}</p>
                 </div>
-                <button className="text-[10px] font-semibold text-primary hover:underline flex items-center justify-center gap-0.5 mt-auto">
+                <span className="text-[10px] font-semibold text-primary group-hover:underline flex items-center justify-center gap-0.5 mt-auto">
                   {contact.cta}
                   <ChevronRight size={12} />
-                </button>
-              </div>
+                </span>
+              </a>
             ))}
           </div>
         </div>

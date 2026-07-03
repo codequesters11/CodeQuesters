@@ -78,6 +78,7 @@ export default function CommunityPage() {
       count: '1,800+ Members',
       icon: <MessageCircle className="w-5 h-5 text-[#25D366]" />,
       actionText: 'Join WhatsApp',
+      href: 'https://whatsapp.com/channel/0029VbAjqOJFXUuja0h4G00j',
     },
     {
       title: 'Discord community',
@@ -85,6 +86,7 @@ export default function CommunityPage() {
       count: '2,500+ Members',
       icon: <MessageSquare className="w-5 h-5 text-[#5865F2]" />,
       actionText: 'Join Discord',
+      href: '#',
     },
     {
       title: 'LinkedIn community',
@@ -92,6 +94,7 @@ export default function CommunityPage() {
       count: '1,200+ Followers',
       icon: <Globe className="w-5 h-5 text-[#0A66C2]" />,
       actionText: 'Follow Page',
+      href: 'https://www.linkedin.com/company/codequesters',
     },
     {
       title: 'Telegram community',
@@ -99,6 +102,7 @@ export default function CommunityPage() {
       count: '900+ Subscribers',
       icon: <Send className="w-5 h-5 text-[#0088cc]" />,
       actionText: 'Subscribe Channel',
+      href: '#',
     },
   ]
 
@@ -306,10 +310,17 @@ export default function CommunityPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {channels.map((chan, idx) => (
-              <div key={idx} className="card-base bg-card border border-border p-6 hover:border-primary/20 transition-all duration-300 flex flex-col justify-between" hover-translate="y-1">
+              <a
+                key={idx}
+                href={chan.href}
+                target={chan.href.startsWith('http') ? '_blank' : undefined}
+                rel={chan.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="card-base bg-card border border-border p-6 hover:border-primary/20 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+                hover-translate="y-1"
+              >
                 <div>
                   <div className="flex justify-between items-center mb-4">
-                    <div className="bg-background-secondary p-2 rounded-md border border-border">
+                    <div className="bg-background-secondary p-2 rounded-md border border-border group-hover:border-primary/30 transition-colors">
                       {chan.icon}
                     </div>
                     <span className="text-[10px] text-text-secondary bg-background-secondary border border-border px-2 py-0.5 rounded font-semibold">
@@ -319,11 +330,11 @@ export default function CommunityPage() {
                   <h4 className="text-sm font-semibold text-text-primary mb-2 capitalize">{chan.title}</h4>
                   <p className="text-xs text-text-secondary leading-relaxed mb-6 font-normal">{chan.desc}</p>
                 </div>
-                <button className="w-full btn-primary text-xs py-2">
+                <span className="w-full btn-primary text-xs py-2 group-hover:brightness-110">
                   {chan.actionText}
                   <ArrowRight size={14} />
-                </button>
-              </div>
+                </span>
+              </a>
             ))}
           </div>
         </div>
