@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeQuesters V2 — Premium Builder Ecosystem Platform
 
-## Getting Started
+A modern, premium builder ecosystem web application built to help engineering students move beyond theory, start code execution, participate in sprints, and discover career opportunities.
 
-First, run the development server:
+This platform showcases community activity, builder milestones, events, partnerships, and transformation stories using a strictly light-theme, minimal, and high-performance Next.js layout.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Tech Stack
+
+- **Core**: Next.js (App Router, static rendering)
+- **Styling**: Tailwind CSS (Tailwind `@theme` extensions)
+- **Animations**: Framer Motion (staggered transitions, smooth hover transforms)
+- **Icons**: Lucide React (inline SVGs for social nodes)
+- **Tooling**: TypeScript, ESLint
+
+---
+
+## 📁 Project Architecture
+
+The codebase is organized as follows:
+
+```text
+src/
+├── app/                  # Route entrypoints (App Router)
+│   ├── layout.tsx        # Global HTML wrapper
+│   ├── page.tsx          # Homepage (11 sections mounted)
+│   ├── about/            # Page 2: About (12 sections)
+│   ├── events/           # Page 3: Events (12 sections with FAQ accordion)
+│   ├── community/        # Page 4: Community (12 sections with feed simulator)
+│   ├── builders/         # Page 5: Unified Builders (18 sections, dynamic directory preview)
+│   ├── partners/         # Page 7: Partners (14 sections, SVG line node hero)
+│   └── contact/          # Page 8: Contact (12 sections, validation form hub)
+├── components/           # UI Elements
+│   ├── navbar/           # Sticky backdrop-blur Header Navigation
+│   ├── footer/           # Multi-column Footer
+│   ├── sections/         # Individual homepage block sections
+│   └── shared/           # Global Layout shell components
+├── data/                 # Statistics, stories mock datasets
+├── lib/                  # Utilities (Tailwind merge helpers)
+└── types/                # TypeScript interfaces
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡ Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Installation
+Install all developer and project dependencies:
+```bash
+npm install
+```
 
-## Learn More
+### 2. Local Development
+Start the local development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to inspect the application.
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Production Build
+Compile and generate optimized static pages:
+```bash
+npm run build
+```
+This runs TypeScript compiler checks, ESLint formatting checks, and outputs statically pre-rendered optimized routes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Design Philosophy & Principles
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Sentence Case Everywhere**: All headings, buttons, and badges follow sentence-case capitalization constraints (e.g. `Featured event`, `Become a partner`), except for capitalized badges (e.g. `NEW`, `FEATURED`).
+2. **Light Theme Default**: Globals and tokens set white background variables as default, completely excluding preferences overrides.
+3. **No Stock Graphics/Placeholders**: Visual mockups are rendered using gradient card collages, interactive feed simulators, and connected SVG network maps.
+4. **Unique Page Heroes**: Every route features a dedicated hero layout style (Ecosystem network, Conversation space, Builder Wall mosaic) keeping the design fresh.
+5. **Aesthetics & Spacing**: Generous margins, soft border outlines (`border-border`), and micro-animations for interactions.
