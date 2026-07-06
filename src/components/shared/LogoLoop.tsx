@@ -21,6 +21,9 @@ export default function LogoLoop({
   direction = 'left',
   hoverPause = true,
 }: LogoLoopProps) {
+  // Use React state to toggle animation play state to ensure cross-browser compatibility
+  const [isPaused, setIsPaused] = React.useState(false);
+
   // Duplicate items to ensure a seamless infinite scroll loop
   const duplicatedItems = [...items, ...items, ...items, ...items];
 
@@ -34,11 +37,10 @@ export default function LogoLoop({
         className="flex gap-16 items-center w-max"
         style={{
           animation: `${direction === 'left' ? 'scroll-left-loop' : 'scroll-right-loop'} ${speed}s linear infinite`,
-          animationPlayState: hoverPause ? 'var(--play-state, running)' : 'running',
+          animationPlayState: isPaused ? 'paused' : 'running',
         }}
-        // Using inline styling trick or Tailwind hover rules to pause animation state
-        onMouseEnter={(e) => hoverPause && e.currentTarget.style.setProperty('--play-state', 'paused')}
-        onMouseLeave={(e) => hoverPause && e.currentTarget.style.setProperty('--play-state', 'running')}
+        onMouseEnter={() => hoverPause && setIsPaused(true)}
+        onMouseLeave={() => hoverPause && setIsPaused(false)}
       >
         {duplicatedItems.map((item, index) => (
           <div
@@ -59,25 +61,6 @@ export default function LogoLoop({
           </div>
         ))}
       </div>
-
-      <style jsx global>{`
-        @keyframes scroll-left-loop {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        @keyframes scroll-right-loop {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
     </div>
   )
 }
