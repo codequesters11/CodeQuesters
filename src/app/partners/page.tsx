@@ -52,35 +52,39 @@ export default function PartnersPage() {
   ]
 
   const featured = [
-    { org: 'Vercel', type: 'Technology Partner', desc: 'Providing Next.js static deployment credits and code templates for hackathon squads.', impact: '150+ student projects hosted statically.', link: 'https://vercel.com' },
-    { org: 'Stripe', type: 'Technology Partner', desc: 'Supporting builders with sandbox payment API testing keys and checkout integration guides.', impact: '50+ payment engines integrated.', link: 'https://stripe.com' },
+    { org: 'Vercel', logo: '/partners/Vercel--.svg', type: 'Technology Partner', desc: 'Providing Next.js static deployment credits and code templates for hackathon squads.', impact: '150+ student projects hosted statically.', link: 'https://vercel.com' },
+    { org: 'Stripe', logo: '/partners/Stripe.svg', type: 'Technology Partner', desc: 'Supporting builders with sandbox payment API testing keys and checkout integration guides.', impact: '50+ payment engines integrated.', link: 'https://stripe.com' },
   ]
 
   const communityPartners = [
-    { name: 'AI House', desc: 'Co-hosting offline keynotes, system design panels, and weekend developer mixers.', contribution: 'Venue & mentorship support' },
+    { name: 'AI House', logo: '/partners/coworking.png', desc: 'Co-hosting offline keynotes, system design panels, and weekend developer mixers.', contribution: 'Venue & mentorship support' },
     { name: 'BuildSpace', desc: 'Collaborating on student builder circles and providing progress track frameworks.', contribution: 'Ideation resources' },
-    { name: 'DevFolio', desc: 'Integrating project submission pipelines and visual leaderboards for national sittings.', contribution: 'Sponsorship portal' },
-    { name: 'GradSkills', desc: 'Curating developer roadmap guides and running university campus chapters.', contribution: 'Learning modules' },
+    { name: 'DevFolio', logo: '/partners/Devfolio.svg', desc: 'Integrating project submission pipelines and visual leaderboards for national sittings.', contribution: 'Sponsorship portal' },
+    { name: 'GradSkills', logo: '/partners/grandskills.png', desc: 'Curating developer roadmap guides and running university campus chapters.', contribution: 'Learning modules' },
+    { name: 'Supervity', logo: '/partners/supervity.png', desc: 'Running AI agent workshops, tool building bootcamps, and providing platform licenses.', contribution: 'Workshop sponsorship & API tooling' },
+    { name: 'Osen', logo: '/partners/osen.png', desc: 'Open-source software enablement programs and mentorship for college students.', contribution: 'Open source guides' },
   ]
 
   const techPartners = [
-    { name: 'GitHub', platform: 'Developer platform', details: 'Free organization workspace access and credits for open repository maintainers.' },
-    { name: 'Vercel', platform: 'Static deployments', details: 'Static hosting plans and compiler resources for campus chapter codebases.' },
-    { name: 'Stripe', platform: 'Sandbox payment APIs', details: 'Sandbox testing tokens and payment check systems for startup developers.' },
+    { name: 'GitHub', logo: '/partners/Github-Icon.svg', platform: 'Developer platform', details: 'Free organization workspace access and credits for open repository maintainers.' },
+    { name: 'Vercel', logo: '/partners/Vercel--.svg', platform: 'Static deployments', details: 'Static hosting plans and compiler resources for campus chapter codebases.' },
+    { name: 'Stripe', logo: '/partners/Stripe.svg', platform: 'Sandbox payment APIs', details: 'Sandbox testing tokens and payment check systems for startup developers.' },
     { name: 'Linear', platform: 'Issue tracker', details: 'Developer tracking frameworks and planning panels for collaborative teams.' },
   ]
 
   const hiringPartners = [
-    { name: 'GreatHire', role: 'Direct recruitment', opp: '12+ Jobs shared', impact: 'Direct referral matches' },
-    { name: 'Devel', role: 'Startup Gigs', opp: '15+ Gigs shared', impact: 'Freelance dev matches' },
-    { name: 'ICS Group', role: 'Talent sourcing', opp: '8+ Roles shared', impact: 'Assessments screening' },
+    { name: 'GreatHire', logo: '/partners/gh.png', role: 'Direct recruitment', opp: '12+ Jobs shared', impact: 'Direct referral matches' },
+    { name: 'Devel', logo: '/partners/devrel.png', role: 'Startup Gigs', opp: '15+ Gigs shared', impact: 'Freelance dev matches' },
+    { name: 'ICS Group', logo: '/partners/ics.png', role: 'Talent sourcing', opp: '8+ Roles shared', impact: 'Assessments screening' },
     { name: 'TechStartup Inc', role: 'Early placements', opp: '5+ Internships', impact: '2 VIT interns hired' },
+    { name: 'Medo', logo: '/partners/medo.png', role: 'Healthtech placements', opp: '4+ Roles shared', impact: 'Internship matches' },
+    { name: 'Rocket', logo: '/partners/rocket.png', role: 'Fast-track hire', opp: '7+ Jobs shared', impact: 'Direct interviews' },
   ]
 
   const universityPartners = [
-    { name: 'IIIT Delhi Campus', loc: 'Delhi NCR', type: 'Flagship Partner', events: '5 Sprints Conducted', reach: '400+ Students' },
-    { name: 'IIT Bombay Hub', loc: 'Mumbai', type: 'Workshop Hub', events: '3 Sprints Conducted', reach: '250+ Students' },
-    { name: 'BITS Pilani chapter', loc: 'Goa', type: 'Chapter Node', events: '4 Sprints Conducted', reach: '300+ Students' },
+    { name: 'IIIT Delhi Campus', logo: '/partners/IIIT-Delhi.svg', loc: 'Delhi NCR', type: 'Flagship Partner', events: '5 Sprints Conducted', reach: '400+ Students' },
+    { name: 'IIT Bombay Hub', logo: '/partners/IIIT-Bombay.svg', loc: 'Mumbai', type: 'Workshop Hub', events: '3 Sprints Conducted', reach: '250+ Students' },
+    { name: 'BITS Pilani chapter', logo: '/partners/BITS-Pilani.svg', loc: 'Goa', type: 'Chapter Node', events: '4 Sprints Conducted', reach: '300+ Students' },
   ]
 
   const caseStudies = [
@@ -333,7 +337,14 @@ export default function PartnersPage() {
             {communityPartners.map((item, idx) => (
               <div key={idx} className="card-base bg-card p-6 border border-border hover:border-primary/20 transition-all duration-300 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">{item.name}</h4>
+                  <div className="flex items-center gap-3 mb-3">
+                    {item.logo && (
+                      <div className="w-8 h-8 rounded border border-border flex items-center justify-center p-1 bg-white">
+                        <img src={item.logo} alt={item.name} className="w-full h-full object-contain" />
+                      </div>
+                    )}
+                    <h4 className="text-sm font-semibold text-text-primary">{item.name}</h4>
+                  </div>
                   <p className="text-xs text-text-secondary leading-normal mb-4 font-normal">{item.desc}</p>
                 </div>
                 <div className="border-t border-border pt-4 mt-auto">
@@ -367,7 +378,14 @@ export default function PartnersPage() {
               <div key={idx} className="card-base bg-card p-6 border border-border hover:border-primary/20 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex justify-between items-center mb-3">
-                    <h4 className="text-sm font-semibold text-text-primary">{item.name}</h4>
+                    <div className="flex items-center gap-3">
+                      {item.logo && (
+                        <div className="w-8 h-8 rounded border border-border flex items-center justify-center p-1 bg-white">
+                          <img src={item.logo} alt={item.name} className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                      <h4 className="text-sm font-semibold text-text-primary">{item.name}</h4>
+                    </div>
                     <span className="text-[9px] font-semibold text-accent-blue bg-accent-blue/10 px-2 py-0.5 rounded">{item.platform}</span>
                   </div>
                   <p className="text-xs text-text-secondary leading-relaxed font-normal">{item.details}</p>
@@ -402,7 +420,14 @@ export default function PartnersPage() {
                     <span className="text-[9px] uppercase font-bold tracking-wider text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded">
                       {item.opp}
                     </span>
-                    <span className="text-xs font-bold text-text-primary">{item.name}</span>
+                    <div className="flex items-center gap-2">
+                      {item.logo && (
+                        <div className="w-6 h-6 rounded border border-border flex items-center justify-center p-0.5 bg-white">
+                          <img src={item.logo} alt={item.name} className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                      <span className="text-xs font-bold text-text-primary">{item.name}</span>
+                    </div>
                   </div>
                   <h4 className="text-xs font-semibold text-text-primary mb-1">{item.role}</h4>
                   <p className="text-[10px] text-text-secondary leading-normal font-normal mb-5">Access talent pool listings and interview scheduling.</p>
@@ -446,7 +471,14 @@ export default function PartnersPage() {
                       {item.loc}
                     </span>
                   </div>
-                  <h3 className="text-sm font-semibold text-text-primary mb-2">{item.name}</h3>
+                  <div className="flex items-center gap-3 mb-2">
+                    {item.logo && (
+                      <div className="w-8 h-8 rounded border border-border flex items-center justify-center p-1 bg-white">
+                        <img src={item.logo} alt={item.name} className="w-full h-full object-contain" />
+                      </div>
+                    )}
+                    <h3 className="text-sm font-semibold text-text-primary">{item.name}</h3>
+                  </div>
                   <p className="text-xs text-text-secondary leading-normal font-normal mb-4">{item.events}</p>
                 </div>
                 <div className="border-t border-border pt-4 mt-auto">

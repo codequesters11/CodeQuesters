@@ -45,8 +45,8 @@ export const features = [
 ]
 
 export const partners = [
-  { name: 'DEVEL', logo: '/logos/devel.svg' },
-  { name: 'GreatHire', logo: '/logos/greathire.svg' },
-  { name: 'GradSkills', logo: '/logos/gradskills.svg' },
-  { name: 'ICS', logo: '/logos/ics.svg' },
+  { name: 'Devel', logo: '/partners/devrel.png' },
+  { name: 'GreatHire', logo: '/partners/gh.png' },
+  { name: 'GradSkills', logo: '/partners/grandskills.png' },
+  { name: 'ICS', logo: '/partners/ics.png' },
 ]

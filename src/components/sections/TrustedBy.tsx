@@ -1,49 +1,50 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import LogoLoop from '@components/shared/LogoLoop'
 
 export default function TrustedBy() {
   const categories = [
     {
       title: 'Technology partners',
       logos: [
-        { name: 'Vercel', color: 'group-hover:text-black dark:group-hover:text-white' },
-        { name: 'Stripe', color: 'group-hover:text-[#635BFF]' },
+        { name: 'Vercel', logo: '/partners/Vercel--.svg', color: 'group-hover:text-black dark:group-hover:text-white' },
+        { name: 'Stripe', logo: '/partners/Stripe.svg', color: 'group-hover:text-[#635BFF]' },
         { name: 'Linear', color: 'group-hover:text-[#5E6AD2]' },
-        { name: 'Github', color: 'group-hover:text-black dark:group-hover:text-white' },
+        { name: 'Github', logo: '/partners/Github-Icon.svg', color: 'group-hover:text-black dark:group-hover:text-white' },
       ],
     },
     {
       title: 'Hiring partners',
       logos: [
-        { name: 'GreatHire', color: 'group-hover:text-primary' },
-        { name: 'Devel', color: 'group-hover:text-accent-blue' },
-        { name: 'ICS Group', color: 'group-hover:text-accent-purple' },
-        { name: 'TechStartup', color: 'group-hover:text-accent-amber' },
+        { name: 'GreatHire', logo: '/partners/gh.png', color: 'group-hover:text-primary' },
+        { name: 'Devel', logo: '/partners/devrel.png', color: 'group-hover:text-accent-blue' },
+        { name: 'ICS Group', logo: '/partners/ics.png', color: 'group-hover:text-accent-purple' },
+        { name: 'Supervity', logo: '/partners/supervity.png', color: 'group-hover:text-accent-purple' },
       ],
     },
     {
       title: 'Community partners',
       logos: [
-        { name: 'AI House', color: 'group-hover:text-black dark:group-hover:text-white' },
-        { name: 'GradSkills', color: 'group-hover:text-primary-dark' },
-        { name: 'BuildSpace', color: 'group-hover:text-[#FF5C00]' },
-        { name: 'DevFolio', color: 'group-hover:text-[#3770FF]' },
+        { name: 'AI House', logo: '/partners/coworking.png', color: 'group-hover:text-black dark:group-hover:text-white' },
+        { name: 'GradSkills', logo: '/partners/grandskills.png', color: 'group-hover:text-primary-dark' },
+        { name: 'Medo', logo: '/partners/medo.png', color: 'group-hover:text-[#FF5C00]' },
+        { name: 'Osen', logo: '/partners/osen.png', color: 'group-hover:text-[#3770FF]' },
       ],
     },
     {
       title: 'University partners',
       logos: [
-        { name: 'IIIT Delhi', color: 'group-hover:text-accent-blue' },
-        { name: 'IIT Bombay', color: 'group-hover:text-accent-purple' },
-        { name: 'BITS Pilani', color: 'group-hover:text-accent-amber' },
+        { name: 'IIIT Delhi', logo: '/partners/IIIT-Delhi.svg', color: 'group-hover:text-accent-blue' },
+        { name: 'IIT Bombay', logo: '/partners/IIIT-Bombay.svg', color: 'group-hover:text-accent-purple' },
+        { name: 'BITS Pilani', logo: '/partners/BITS-Pilani.svg', color: 'group-hover:text-accent-amber' },
         { name: 'VIT Chennai', color: 'group-hover:text-primary' },
       ],
     },
   ]
 
   return (
-    <section className="section-spacing bg-background-secondary border-t border-border">
+    <section className="section-spacing bg-background-secondary border-t border-border overflow-hidden">
       <div className="container-max">
         <motion.div
           className="text-center mb-16"
@@ -72,18 +73,11 @@ export default function TrustedBy() {
               <h4 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-6 text-center md:text-left">
                 {category.title}
               </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
-                {category.logos.map((logo, logoIdx) => (
-                  <div
-                    key={logoIdx}
-                    className="h-16 bg-card rounded-md border border-border flex items-center justify-center cursor-pointer group transition-all duration-300 hover:border-primary/30 hover:shadow-sm"
-                  >
-                    <span className={`font-semibold tracking-wide text-text-secondary/60 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${logo.color} text-sm md:text-base`}>
-                      {logo.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <LogoLoop 
+                items={category.logos} 
+                direction={catIdx % 2 === 0 ? 'left' : 'right'} 
+                speed={20 + catIdx * 3} 
+              />
             </motion.div>
           ))}
         </div>

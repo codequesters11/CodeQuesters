@@ -195,22 +195,42 @@ export default function AboutPage() {
   const partnerCategories = [
     {
       title: 'Technology partners',
-      names: ['Vercel', 'Stripe', 'Linear', 'Github'],
+      logos: [
+        { name: 'Vercel', logo: '/partners/Vercel--.svg' },
+        { name: 'Stripe', logo: '/partners/Stripe.svg' },
+        { name: 'Linear' },
+        { name: 'Github', logo: '/partners/Github-Icon.svg' }
+      ],
       color: 'group-hover:text-black'
     },
     {
       title: 'Hiring partners',
-      names: ['GreatHire', 'Devel', 'ICS Group', 'TechStartup'],
+      logos: [
+        { name: 'GreatHire', logo: '/partners/gh.png' },
+        { name: 'Devel', logo: '/partners/devrel.png' },
+        { name: 'ICS Group', logo: '/partners/ics.png' },
+        { name: 'Supervity', logo: '/partners/supervity.png' }
+      ],
       color: 'group-hover:text-primary'
     },
     {
       title: 'Community partners',
-      names: ['AI House', 'GradSkills', 'BuildSpace', 'DevFolio'],
+      logos: [
+        { name: 'AI House', logo: '/partners/coworking.png' },
+        { name: 'GradSkills', logo: '/partners/grandskills.png' },
+        { name: 'Medo', logo: '/partners/medo.png' },
+        { name: 'Osen', logo: '/partners/osen.png' }
+      ],
       color: 'group-hover:text-accent-blue'
     },
     {
       title: 'University partners',
-      names: ['IIIT Delhi', 'IIT Bombay', 'BITS Pilani', 'VIT Chennai'],
+      logos: [
+        { name: 'IIIT Delhi', logo: '/partners/IIIT-Delhi.svg' },
+        { name: 'IIT Bombay', logo: '/partners/IIIT-Bombay.svg' },
+        { name: 'BITS Pilani', logo: '/partners/BITS-Pilani.svg' },
+        { name: 'VIT Chennai' }
+      ],
       color: 'group-hover:text-accent-purple'
     }
   ]
@@ -650,14 +670,22 @@ export default function AboutPage() {
                   {category.title}
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {category.names.map((name, logoIdx) => (
+                  {category.logos.map((logo, logoIdx) => (
                     <div
                       key={logoIdx}
-                      className="h-16 bg-card rounded-md border border-border flex items-center justify-center cursor-pointer group transition-all duration-300 hover:border-primary/30 hover:shadow-sm"
+                      className="h-16 bg-card rounded-md border border-border flex items-center justify-center cursor-pointer group transition-all duration-300 hover:border-primary/30 hover:shadow-sm px-4"
                     >
-                      <span className={`font-semibold tracking-wide text-text-secondary/60 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${category.color} text-sm md:text-base`}>
-                        {name}
-                      </span>
+                      {logo.logo ? (
+                        <img
+                          src={logo.logo}
+                          alt={logo.name}
+                          className="h-8 max-w-full object-contain transition-all duration-300"
+                        />
+                      ) : (
+                        <span className={`font-semibold tracking-wide text-text-secondary transition-all duration-300 ${category.color} text-sm md:text-base`}>
+                          {logo.name}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>

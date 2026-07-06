@@ -42,9 +42,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-dark rounded-md flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
+            <img 
+              src="/logo-CQ-tech.png" 
+              alt="CodeQuesters Logo" 
+              className="w-8 h-8 object-contain transition-transform group-hover:scale-105" 
+            />
             <span className="font-semibold text-lg text-primary tracking-tight">
               CodeQuesters
             </span>
