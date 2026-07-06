@@ -1,8 +1,9 @@
 import Layout from '@components/shared/Layout'
 import Hero from '@components/sections/Hero'
 import Impact from '@components/sections/Impact'
+import FeaturedVideo from '@components/sections/FeaturedVideo'
 import TrustedBy from '@components/sections/TrustedBy'
-import WhatWeDo from '@components/sections/WhatWeDo'
+import ServicesVideo from '@components/sections/ServicesVideo'
 import FeaturedEvent from '@components/sections/FeaturedEvent'
 import Highlights from '@components/sections/Highlights'
 import Stories from '@components/sections/Stories'
@@ -21,8 +22,9 @@ export default function Home() {
     <Layout>
       <Hero />
       <Impact />
+      <FeaturedVideo />
       <TrustedBy />
-      <WhatWeDo />
+      <ServicesVideo />
       <FeaturedEvent />
       <Highlights />
       <Stories />

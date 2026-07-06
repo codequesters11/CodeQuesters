@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Layout from '@components/shared/Layout'
+import AboutHero from '@components/sections/AboutHero'
+import PhilosophySection from '@components/sections/PhilosophySection'
 import { 
   Trophy, 
   Code, 
@@ -245,26 +247,8 @@ export default function AboutPage() {
 
   return (
     <Layout>
-      {/* SECTION 1 — PAGE HERO */}
-      <section className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
-        <div className="container-max text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto flex flex-col items-center"
-          >
-            <span className="badge mb-5">About CodeQuesters</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary mb-6">
-              More than a community. <br />
-              <span className="text-primary">A builder ecosystem</span>.
-            </h1>
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed max-w-xl font-normal">
-              CodeQuesters exists to help students move beyond passive learning and start active building. Through hack sprints, code workshops, direct mentorship, and career collaborations, we create the ecosystem where builders grow together.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      {/* SECTION 1 — CINEMATIC ABOUT HERO */}
+      <AboutHero />
 
       {/* SECTION 2 — OUR STORY */}
       <section className="section-spacing bg-white border-b border-border">
@@ -311,42 +295,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 3 — MISSION & VISION */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Card 1: Mission */}
-            <motion.div 
-              className="card-base bg-card p-8 hover:shadow-sm"
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="bg-primary-light p-3 rounded-lg border border-primary/10 w-fit mb-5">
-                <Target className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-text-primary mb-2">Our mission</h3>
-              <p className="text-xs text-text-secondary leading-relaxed font-normal">
-                To help students learn, build, collaborate, and grow through hands-on hackathons, technical bootcamps, and real-world career opportunities.
-              </p>
-            </motion.div>
-
-            {/* Card 2: Vision */}
-            <motion.div 
-              className="card-base bg-card p-8 hover:shadow-sm"
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="bg-accent-blue/10 p-3 rounded-lg border border-accent-blue/10 w-fit mb-5">
-                <Rocket className="w-6 h-6 text-accent-blue" />
-              </div>
-              <h3 className="text-lg font-semibold text-text-primary mb-2">Our vision</h3>
-              <p className="text-xs text-text-secondary leading-relaxed font-normal">
-                Create one of the most impactful builder ecosystems where students can confidently launch software engineering careers, startup MVPs, and meaningful open-source contributions.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 3 — CINEMATIC MISSION × VISION */}
+      <PhilosophySection />
 
       {/* SECTION 4 — TIMELINE */}
       <section className="section-spacing bg-white border-b border-border">
