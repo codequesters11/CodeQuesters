@@ -90,25 +90,40 @@ export default function EventsPage() {
 
   const past = [
     {
-      title: 'CodeQuest 2025 flagship hackathon',
-      date: 'Jan 2025',
-      participants: '1,500+ builders',
-      summary: 'Focused sprint on collaborative API tools. Teams built proxy servers, visual debuggers, and GSoC dashboard utilities.',
-      bannerGrad: 'from-primary/10 via-primary-dark/10 to-primary/5'
+      title: 'Compete & Win: Summer Internship Challenge 2026',
+      date: 'May 31, 2026 - 9:00 AM – 5:00 PM IST',
+      location: 'CS Coworking Spaces, Raidurg, Hyderabad + Virtual',
+      by: 'GradSkills × CodeQuesters',
+      status: 'Ended',
+      image: '/events/summership-2026.jpg',
+      tags: ['Internship', 'AI'],
     },
     {
-      title: 'Open source contributor panel',
-      date: 'March 2025',
-      participants: '400+ builders',
-      summary: 'Interactive discussion with Git maintainers, mapping steps to contribute code to core backend frameworks.',
-      bannerGrad: 'from-accent-blue/10 to-accent-blue/5'
+      title: 'GitHub to Income: Building Real Opportunities Through Open Source',
+      date: 'May 30, 2026 - 5:00 PM – 7:00 PM IST',
+      location: 'Virtual',
+      by: 'CodeQuesters × CDN IGNOU',
+      status: 'Ended',
+      image: '/events/github_speaker_post.jpg',
+      tags: ['GitHub', 'Open Source'],
     },
     {
-      title: 'Rust developer sprints',
-      date: 'May 2025',
-      participants: '250+ builders',
-      summary: 'Practical code writing bootcamp focusing on rust safety, compiler optimizations, and memory safety rules.',
-      bannerGrad: 'from-accent-purple/10 to-accent-purple/5'
+      title: 'CODEQUEST 2026 — GenAI Hackathon',
+      date: 'Apr 12, 2026',
+      location: 'Hybrid',
+      by: 'CodeQuesters',
+      status: 'Ended',
+      image: '/events/CodeQuest-2026.jpg',
+      tags: ['GenAI', 'Hackathon'],
+    },
+    {
+      title: 'Supervity Workshop — Build Your First AI Agent LIVE!',
+      date: 'Apr 2, 2026 - 7:00 PM – 9:00 PM IST',
+      location: 'Virtual',
+      by: 'CodeQuesters',
+      status: 'Ended',
+      image: '/events/supervity-workshop.png',
+      tags: ['AI Agents', 'No-Code'],
     },
   ]
 
@@ -358,36 +373,92 @@ export default function EventsPage() {
       </section>
 
       {/* SECTION 5 — PAST EVENTS */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
+      <section className="section-spacing bg-[#030604] border-b border-neutral-900 text-neutral-300">
         <div className="container-max">
           <motion.div
-            className="text-center mb-16"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="flex items-center justify-between mb-12"
           >
-            <span className="badge mb-3">Event logs</span>
-            <h2 className="text-3xl font-bold text-text-primary">
-              Past events
-            </h2>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center text-primary">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white lowercase first-letter:uppercase">
+                Past events
+              </h2>
+              <span className="bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/20 rounded-full px-3 py-0.5 text-xs font-semibold">
+                4 completed
+              </span>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {past.map((event, idx) => (
-              <div key={idx} className="card-base p-6 border border-border bg-card flex flex-col justify-between hover:border-primary/25 duration-300">
-                <div>
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-[10px] text-text-tertiary font-semibold uppercase">{event.date}</span>
-                    <span className="text-[10px] text-primary-dark bg-primary-light font-semibold px-2 py-0.5 rounded">{event.participants}</span>
+              <div 
+                key={idx} 
+                className="bg-[#080d0a] border border-neutral-900 rounded-lg overflow-hidden flex flex-col justify-between hover:border-primary/35 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                {/* Poster container */}
+                <div className="relative w-full aspect-[4/5] bg-neutral-950 overflow-hidden border-b border-neutral-900">
+                  <img 
+                    src={event.image} 
+                    alt={event.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-103" 
+                  />
+                  {/* Floating Completed Badge */}
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-emerald-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    <span>Completed</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-text-primary mb-2">{event.title}</h3>
-                  <p className="text-xs text-text-secondary leading-relaxed font-normal mb-5">{event.summary}</p>
+                  {/* Floating Tags */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                    {event.tags.map((tag, tIdx) => (
+                      <span 
+                        key={tIdx} 
+                        className="bg-black/65 text-white text-[10px] font-semibold px-2.5 py-1 rounded backdrop-blur-sm border border-neutral-800/40"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <button className="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1 mt-auto w-fit">
-                  View event summary
-                  <ArrowUpRight size={12} />
-                </button>
+
+                {/* Card Content details */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-4 line-clamp-2 leading-snug">
+                      {event.title}
+                    </h3>
+                    <div className="space-y-2.5 mb-6 text-xs text-neutral-400 font-normal">
+                      <div className="flex items-start gap-2.5">
+                        <Calendar size={14} className="text-primary mt-0.5 shrink-0" />
+                        <span className="leading-normal">{event.date}</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <MapPin size={14} className="text-primary mt-0.5 shrink-0" />
+                        <span className="leading-normal">{event.location}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between border-t border-neutral-900/60 pt-4 mt-auto text-[11px] text-neutral-500 font-normal">
+                    <span>
+                      By <strong className="text-neutral-300 font-medium">{event.by}</strong>
+                    </span>
+                    <span className="bg-neutral-900 border border-neutral-800/50 text-neutral-400 px-2 py-0.5 rounded font-medium">
+                      {event.status}
+                    </span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
