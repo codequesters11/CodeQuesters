@@ -156,3 +156,21 @@
 @utility badge {
   @apply inline-flex items-center gap-1 px-3 py-1 rounded-[4px] text-xs font-medium bg-primary-light text-primary border border-primary/20;
 }
+
+@keyframes scroll-left-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right-loop {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
