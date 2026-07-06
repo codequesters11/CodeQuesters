@@ -73,9 +73,9 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <button className="btn-primary py-2 px-5 text-sm hidden sm:inline-flex">
+          <a href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" target="_blank" rel="noopener noreferrer" className="btn-primary py-2 px-5 text-sm hidden sm:inline-flex">
             Join Community
-          </button>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -107,9 +107,9 @@ export default function Navbar() {
                 </Link>
               )
             })}
-            <button className="btn-primary w-full mt-4 py-3 text-sm">
+            <a href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" target="_blank" rel="noopener noreferrer" className="btn-primary w-full mt-4 py-3 text-sm">
               Join Community
-            </button>
+            </a>
           </div>
         )}
       </div>
