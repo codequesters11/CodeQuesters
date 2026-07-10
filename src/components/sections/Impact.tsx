@@ -1,7 +1,39 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Award, Users, BookOpen, School } from 'lucide-react'
+
+function CountUp({ end, suffix = '' }: { end: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
+
+  useEffect(() => {
+    if (!isInView) return
+    let start = 0
+    const duration = 1500 // ms
+    const increment = end / (duration / 16) // roughly 60 fps
+    
+    let currentFrame = 0
+    const totalFrames = duration / 16
+
+    const timer = setInterval(() => {
+      currentFrame++
+      if (currentFrame >= totalFrames) {
+        setCount(end)
+        clearInterval(timer)
+      } else {
+        start += increment
+        setCount(Math.floor(start))
+      }
+    }, 16)
+
+    return () => clearInterval(timer)
+  }, [isInView, end])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
 
 export default function Impact() {
   const containerVariants = {
@@ -25,28 +57,32 @@ export default function Impact() {
 
   const metrics = [
     {
-      number: '2000+',
+      value: 2000,
+      suffix: '+',
       label: 'Builders',
       description: 'Active students collaborating, building, and learning together.',
       icon: <Users className="text-primary w-5 h-5" />,
       accentBorder: 'border-l-primary border-l-4'
     },
     {
-      number: '50+',
+      value: 50,
+      suffix: '+',
       label: 'Events & workshops',
       description: 'Practical hackathons, masterclasses, and open source workshops.',
       icon: <BookOpen className="text-accent-blue w-5 h-5" />,
       accentBorder: 'border-l-accent-blue border-l-4'
     },
     {
-      number: '74+',
+      value: 74,
+      suffix: '+',
       label: 'Colleges connected',
       description: 'Hubs of campus student communities in various technical programs.',
       icon: <School className="text-accent-amber w-5 h-5" />,
       accentBorder: 'border-l-accent-amber border-l-4'
     },
     {
-      number: '20+',
+      value: 20,
+      suffix: '+',
       label: 'Community partners',
       description: 'Industry organizations supporting, hiring, and mentoring builders.',
       icon: <Award className="text-accent-purple w-5 h-5" />,
@@ -88,7 +124,9 @@ export default function Impact() {
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
-                  <span className="text-3xl font-bold text-text-primary tracking-tight">{metric.number}</span>
+                  <span className="text-3xl font-bold text-text-primary tracking-tight">
+                    <CountUp end={metric.value} suffix={metric.suffix} />
+                  </span>
                   <div className="bg-background-secondary p-2 rounded-md border border-border">
                     {metric.icon}
                   </div>
