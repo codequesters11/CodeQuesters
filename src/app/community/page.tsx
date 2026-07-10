@@ -211,9 +211,9 @@ export default function CommunityPage() {
                   Join community
                   <ArrowRight size={16} />
                 </a>
-                <button className="btn-secondary py-3 px-8 text-sm">
+                <a href="/events" className="btn-secondary py-3 px-8 text-sm flex items-center justify-center">
                   Explore events
-                </button>
+                </a>
               </div>
             </div>
 
@@ -620,9 +620,9 @@ export default function CommunityPage() {
                 Join community
                 <ArrowRight size={16} />
               </a>
-              <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a href="/events" className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
                 Explore events
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
