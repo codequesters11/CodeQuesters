@@ -201,10 +201,15 @@ export default function CommunityPage() {
                 Join a growing ecosystem of builders, developers, creators and students who learn, collaborate and grow through shared experiences and opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <button className="btn-primary py-3 px-8 text-sm">
+                <a 
+                  href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-primary py-3 px-8 text-sm flex items-center justify-center gap-2"
+                >
                   Join community
                   <ArrowRight size={16} />
-                </button>
+                </a>
                 <button className="btn-secondary py-3 px-8 text-sm">
                   Explore events
                 </button>
@@ -634,10 +639,15 @@ export default function CommunityPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a 
+                href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2"
+              >
                 Join community
                 <ArrowRight size={16} />
-              </button>
+              </a>
               <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
                 Explore events
               </button>

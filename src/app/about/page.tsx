@@ -5,21 +5,10 @@ import Layout from '@components/shared/Layout'
 import AboutHero from '@components/sections/AboutHero'
 import PhilosophySection from '@components/sections/PhilosophySection'
 import { 
-  Trophy, 
   Code, 
-  Briefcase, 
-  Award, 
-  ArrowRight, 
   Rocket, 
-  Target, 
   Users, 
   BookOpen, 
-  School, 
-  Compass, 
-  Sparkles, 
-  Heart, 
-  Globe, 
-  ChevronRight, 
   ArrowUpRight 
 } from 'lucide-react'
 
@@ -71,37 +60,6 @@ export default function AboutPage() {
     },
   ]
 
-  const metrics = [
-    {
-      number: '2000+',
-      label: 'Builders',
-      description: 'Active students collaborating, building, and learning together.',
-      icon: <Users className="text-primary w-5 h-5" />,
-      accentBorder: 'border-l-primary border-l-4'
-    },
-    {
-      number: '50+',
-      label: 'Events & workshops',
-      description: 'Practical hackathons, masterclasses, and open source workshops.',
-      icon: <BookOpen className="text-accent-blue w-5 h-5" />,
-      accentBorder: 'border-l-accent-blue border-l-4'
-    },
-    {
-      number: '74+',
-      label: 'Colleges connected',
-      description: 'Hubs of campus student communities in various technical programs.',
-      icon: <School className="text-accent-amber w-5 h-5" />,
-      accentBorder: 'border-l-accent-amber border-l-4'
-    },
-    {
-      number: '20+',
-      label: 'Community partners',
-      description: 'Industry organizations supporting, hiring, and mentoring builders.',
-      icon: <Award className="text-accent-purple w-5 h-5" />,
-      accentBorder: 'border-l-accent-purple border-l-4'
-    }
-  ]
-
   const values = [
     {
       title: 'Learn',
@@ -122,39 +80,6 @@ export default function AboutPage() {
       title: 'Grow',
       description: 'Personal growth creates professional success.',
       icon: <Rocket className="w-5 h-5 text-accent-amber" />,
-    },
-  ]
-
-  const moments = [
-    {
-      title: 'Technical workshops',
-      desc: 'Focused learning sessions inside labs.',
-      class: 'col-span-2 row-span-1 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary',
-      icon: <BookOpen className="w-4 h-4 text-primary" />,
-    },
-    {
-      title: 'Hackathon sprints',
-      desc: '36 hours of late-night code execution.',
-      class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-blue/5 border-l-4 border-l-accent-purple',
-      icon: <Trophy className="w-4 h-4 text-accent-purple" />,
-    },
-    {
-      title: 'Community meetups',
-      desc: 'Connecting with builders offline.',
-      class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-amber/10 to-accent-amber/5 border-l-4 border-l-accent-amber',
-      icon: <Users className="w-4 h-4 text-accent-amber" />,
-    },
-    {
-      title: 'Mentorship reviews',
-      desc: 'Code feedback from industry experts.',
-      class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-primary/5 border-l-4 border-l-accent-blue',
-      icon: <Sparkles className="w-4 h-4 text-accent-blue" />,
-    },
-    {
-      title: 'Builder collaborations',
-      desc: 'Finding co-founders & launch peers.',
-      class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary',
-      icon: <Compass className="w-4 h-4 text-text-secondary" />,
     },
   ]
 
@@ -192,49 +117,6 @@ export default function AboutPage() {
       role: 'Core Maintainer',
       bio: 'Maintains open repositories and runs collaborative developer sprint workshops.',
     },
-  ]
-
-  const partnerCategories = [
-    {
-      title: 'Technology partners',
-      logos: [
-        { name: 'Vercel', logo: '/partners/Vercel--.svg' },
-        { name: 'Stripe', logo: '/partners/Stripe.svg' },
-        { name: 'Linear' },
-        { name: 'Github', logo: '/partners/Github-Icon.svg' }
-      ],
-      color: 'group-hover:text-black'
-    },
-    {
-      title: 'Hiring partners',
-      logos: [
-        { name: 'GreatHire', logo: '/partners/gh.png' },
-        { name: 'Devel', logo: '/partners/devrel.png' },
-        { name: 'ICS Group', logo: '/partners/ics.png' },
-        { name: 'Supervity', logo: '/partners/supervity.png' }
-      ],
-      color: 'group-hover:text-primary'
-    },
-    {
-      title: 'Community partners',
-      logos: [
-        { name: 'AI House', logo: '/partners/coworking.png' },
-        { name: 'GradSkills', logo: '/partners/grandskills.png' },
-        { name: 'Medo', logo: '/partners/medo.png' },
-        { name: 'Osen', logo: '/partners/osen.png' }
-      ],
-      color: 'group-hover:text-accent-blue'
-    },
-    {
-      title: 'University partners',
-      logos: [
-        { name: 'IIIT Delhi', logo: '/partners/IIIT-Delhi.svg' },
-        { name: 'IIT Bombay', logo: '/partners/IIIT-Bombay.svg' },
-        { name: 'BITS Pilani', logo: '/partners/BITS-Pilani.svg' },
-        { name: 'VIT Chennai' }
-      ],
-      color: 'group-hover:text-accent-purple'
-    }
   ]
 
   const futureTargets = [
@@ -349,52 +231,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 5 — IMPACT SECTION */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Community size</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Growing through community
-            </h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-          >
-            {metrics.map((metric, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className={`p-6 rounded-r-lg bg-card border border-border border-l-0 ${metric.accentBorder} hover:shadow-md transition-shadow duration-300 flex flex-col justify-between`}
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <span className="text-3xl font-bold text-text-primary tracking-tight">{metric.number}</span>
-                    <div className="bg-background-secondary p-2 rounded-md border border-border">
-                      {metric.icon}
-                    </div>
-                  </div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">{metric.label}</h4>
-                  <p className="text-xs text-text-secondary leading-normal">{metric.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 6 — CORE VALUES */}
+      {/* SECTION 5 — CORE VALUES */}
       <section className="section-spacing bg-white border-b border-border">
         <div className="container-max">
           <motion.div
@@ -435,55 +272,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 7 — COMMUNITY MOMENTS (Masonry Grid) */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Gallery showcase</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Built by people
-            </h2>
-            <p className="text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-              We capture moments of building, teaching, and learning across campus communities.
-            </p>
-          </motion.div>
-
-          {/* Masonry Layout grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
-            {moments.map((moment, index) => (
-              <motion.div
-                key={index}
-                className={`rounded-lg border border-border p-5 flex flex-col justify-between hover:border-primary/20 hover:shadow-sm duration-300 group cursor-pointer ${moment.class}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                whileHover={{ y: -4 }}
-              >
-                <div className="flex justify-between items-start">
-                  <span className="text-xs uppercase font-bold tracking-wider text-text-primary/75 group-hover:text-primary transition-colors">
-                    {moment.title}
-                  </span>
-                  <div className="bg-white p-1.5 rounded-md border border-border">
-                    {moment.icon}
-                  </div>
-                </div>
-                <p className="text-[10px] md:text-xs text-text-secondary leading-relaxed font-normal">
-                  {moment.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8 — TESTIMONIALS */}
+      {/* SECTION 6 — TESTIMONIALS */}
       <section className="section-spacing bg-white border-b border-border">
         <div className="container-max">
           <motion.div
@@ -533,7 +322,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 9 — LEADERSHIP / TEAM */}
+      {/* SECTION 7 — LEADERSHIP / TEAM */}
       <section className="section-spacing bg-background-secondary border-b border-border">
         <div className="container-max">
           <motion.div
@@ -590,62 +379,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 10 — PARTNER TRUST SECTION */}
-      <section className="section-spacing bg-white border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Partner network</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Supported by amazing organizations
-            </h2>
-          </motion.div>
-
-          <div className="space-y-12">
-            {partnerCategories.map((category, catIdx) => (
-              <motion.div
-                key={catIdx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: catIdx * 0.1, duration: 0.5 }}
-                className="border-b border-border/50 pb-8 last:border-0 last:pb-0"
-              >
-                <h4 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-6 text-center md:text-left">
-                  {category.title}
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {category.logos.map((logo, logoIdx) => (
-                    <div
-                      key={logoIdx}
-                      className="h-16 bg-card rounded-md border border-border flex items-center justify-center cursor-pointer group transition-all duration-300 hover:border-primary/30 hover:shadow-sm px-4"
-                    >
-                      {logo.logo ? (
-                        <img
-                          src={logo.logo}
-                          alt={logo.name}
-                          className="h-8 max-w-full object-contain transition-all duration-300"
-                        />
-                      ) : (
-                        <span className={`font-semibold tracking-wide text-text-secondary transition-all duration-300 ${category.color} text-sm md:text-base`}>
-                          {logo.name}
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 11 — FUTURE VISION */}
+      {/* SECTION 8 — FUTURE VISION */}
       <section className="section-spacing bg-background-secondary border-b border-border">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -701,40 +435,6 @@ export default function AboutPage() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* SECTION 12 — CTA */}
-      <section className="section-spacing bg-white relative overflow-hidden">
-        {/* Subtle background blur accents */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent-blue/5 rounded-full blur-3xl" />
-
-        <div className="container-max relative z-10">
-          <motion.div
-            className="text-center max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Join the builder movement
-            </h2>
-            <p className="text-sm md:text-base text-text-secondary mb-8 leading-relaxed font-normal">
-              Become part of a growing ecosystem helping students build meaningful careers and projects.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2">
-                Join community
-                <ArrowRight size={16} />
-              </button>
-              <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
-                Explore events
-              </button>
-            </div>
-          </motion.div>
         </div>
       </section>
     </Layout>
