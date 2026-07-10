@@ -196,7 +196,7 @@ export default function CommunityPage() {
             <div className="lg:col-span-7 flex flex-col items-start text-left">
               <span className="badge mb-3">Community</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-text-primary mb-6">
-                Build better together.
+                Build better <span className="text-primary">together.</span>
               </h1>
               <p className="text-sm md:text-base text-text-secondary leading-relaxed max-w-xl mb-8 font-normal">
                 Join a growing ecosystem of builders, developers, creators and students who learn, collaborate and grow through shared experiences and opportunities.
