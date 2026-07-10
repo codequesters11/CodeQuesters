@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import Layout from '@components/shared/Layout'
 import { 
   Calendar, 
@@ -136,9 +137,9 @@ export default function EventsPage() {
   ]
 
   const winners = [
-    { name: 'Amit Sharma', role: 'Winner, CodeQuest 2025', story: 'Built an API developer debugger utility. Mentors helped refine the deployment flow, and they pitched to VC partners.', icon: '🏆' },
-    { name: 'Neha Patel', role: 'Top Contributor, Open Source Bootcamps', story: 'Merged 10+ core PRs into open developer tools. Now leads workshop sittings and guides campus chapters.', icon: '💻' },
-    { name: 'Rohan Gupta', role: 'Builder of the Month', story: 'Designed clean documentation for peer developers, simplifying GSoC registration steps for 300+ students.', icon: '🚀' },
+    { name: 'Abhishek Parmani', role: 'Main Speaker, GitHub Workshop', story: 'Led the GitHub to Income workshop — turning open-source contributions into real career opportunities for 300+ students.', icon: '🏆', image: '/events/github_speaker_post.jpg', tags: ['GitHub', 'Open Source'] },
+    { name: 'GradSkills × CodeQuesters', role: 'Summership 2026 Organizers', story: 'Organized the Summer Internship Challenge 2026 — a full-day build, perform, and get-hired event at CS Coworking Spaces, Hyderabad.', icon: '💼', image: '/events/summership-2026.jpg', tags: ['Internship', 'AI'] },
+    { name: 'T Rishik Goud', role: 'Speaker, Supervity Workshop', story: 'AI Engineer at Supervity who ran a live build session — from zero to deployed AI Agent on screen, no theory, pure building.', icon: '🚀', image: '/events/supervity-workshop.png', tags: ['AI Agents', 'Workshop'] },
   ]
 
   const categories = [
@@ -156,11 +157,6 @@ export default function EventsPage() {
     { name: 'Kunal Shah', role: 'Mixer Attendee', quote: 'Met my co-founder at the Delhi builder mixer. We paired up for CodeQuest, built our MVP, and got hired as full-time interns.' },
   ]
 
-  const partnerLogos = [
-    { cat: 'Technology partners', names: ['Vercel', 'Stripe', 'Linear', 'Github'], color: 'group-hover:text-black' },
-    { cat: 'Hiring partners', names: ['GreatHire', 'Devel', 'ICS Group', 'TechStartup'], color: 'group-hover:text-primary' },
-    { cat: 'Community partners', names: ['AI House', 'GradSkills', 'BuildSpace', 'DevFolio'], color: 'group-hover:text-accent-blue' },
-  ]
 
   const faqs = [
     { q: 'How do I register?', a: 'You can register directly through the Explore Events button on the upcoming event card. Some flagship hack sprints require application screening.' },
@@ -531,25 +527,53 @@ export default function EventsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {winners.map((winner, idx) => (
-              <div key={idx} className="card-base bg-card p-6 border border-border flex flex-col justify-between hover:border-primary/25 duration-300">
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center text-white text-base">
-                      {winner.icon}
-                    </div>
-                    <span className="text-[9px] uppercase font-bold tracking-wider text-primary bg-primary-light px-2 py-0.5 rounded">
-                      Top ranking
+              <motion.div
+                key={idx}
+                className="card-base bg-card border border-border flex flex-col hover:border-primary/25 duration-300 overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+                whileHover={{ y: -4 }}
+              >
+                {/* Full Poster Image */}
+                <div className="relative w-full bg-neutral-50 border-b border-border overflow-hidden">
+                  {/* Tags */}
+                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5">
+                    <span className="flex items-center gap-1 bg-white/90 backdrop-blur-sm text-primary text-[10px] font-bold px-2 py-0.5 rounded shadow-sm border border-primary/15">
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                      Completed
                     </span>
+                    {winner.tags.map((tag, tIdx) => (
+                      <span key={tIdx} className="bg-white/90 backdrop-blur-sm text-text-secondary text-[10px] font-semibold px-2 py-0.5 rounded shadow-sm border border-border">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <h3 className="text-sm font-semibold text-text-primary mb-1">{winner.name}</h3>
-                  <span className="text-[10px] font-semibold text-text-tertiary block mb-3 uppercase tracking-wide">{winner.role}</span>
-                  <p className="text-xs text-text-secondary leading-relaxed font-normal mb-5">{winner.story}</p>
+                  <Image
+                    src={winner.image}
+                    alt={winner.name}
+                    width={600}
+                    height={750}
+                    className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <button className="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1 mt-auto w-fit">
-                  Read developer journey
-                  <ArrowRight size={12} />
-                </button>
-              </div>
+
+                {/* Card Content */}
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="text-sm font-bold text-text-primary mb-1 leading-snug">{winner.name}</h3>
+                  <span className="text-[10px] font-semibold text-text-tertiary uppercase tracking-wide mb-3">{winner.role}</span>
+                  <p className="text-xs text-text-secondary leading-relaxed font-normal mb-4">{winner.story}</p>
+                  <button className="text-[11px] font-semibold text-primary hover:underline flex items-center gap-1 mt-auto w-fit">
+                    Read developer journey
+                    <ArrowRight size={12} />
+                  </button>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -624,45 +648,6 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* SECTION 10 — PARTNER EVENTS */}
-      <section className="section-spacing bg-white border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Powering events</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Events powered by partnerships
-            </h2>
-          </motion.div>
-
-          <div className="space-y-8">
-            {partnerLogos.map((category, catIdx) => (
-              <div key={catIdx} className="border-b border-border/50 pb-6 last:border-0 last:pb-0">
-                <h4 className="text-[10px] font-semibold text-text-tertiary uppercase tracking-wider mb-4">
-                  {category.cat}
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {category.names.map((name, logoIdx) => (
-                    <div
-                      key={logoIdx}
-                      className="h-14 bg-card rounded border border-border flex items-center justify-center cursor-pointer group hover:border-primary/20 transition-all duration-300"
-                    >
-                      <span className={`font-semibold tracking-wide text-text-secondary/60 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${category.color} text-xs md:text-sm`}>
-                        {name}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 11 — FAQ */}
       <section className="section-spacing bg-background-secondary border-b border-border">
@@ -733,9 +718,14 @@ export default function EventsPage() {
                 Explore events
                 <ArrowRight size={16} />
               </button>
-              <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a 
+                href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2"
+              >
                 Join community
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
