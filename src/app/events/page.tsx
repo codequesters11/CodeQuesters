@@ -183,13 +183,13 @@ export default function EventsPage() {
                 Explore workshops, hackathons, meetups, competitions and experiences designed to help builders grow.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <button className="btn-primary py-3 px-8 text-sm">
+                <a href="#upcoming-events" className="btn-primary py-3 px-8 text-sm flex items-center justify-center gap-2">
                   Explore upcoming events
                   <ArrowRight size={16} />
-                </button>
-                <button className="btn-secondary py-3 px-8 text-sm">
+                </a>
+                <a href="#past-events" className="btn-secondary py-3 px-8 text-sm flex items-center justify-center">
                   View past events
-                </button>
+                </a>
               </div>
             </div>
 
@@ -315,7 +315,7 @@ export default function EventsPage() {
       </section>
 
       {/* SECTION 4 — UPCOMING EVENTS */}
-      <section className="section-spacing bg-white border-b border-border">
+      <section id="upcoming-events" className="section-spacing bg-white border-b border-border">
         <div className="container-max">
           <motion.div
             className="text-center mb-16"
@@ -369,7 +369,7 @@ export default function EventsPage() {
       </section>
 
       {/* SECTION 5 — PAST EVENTS */}
-      <section className="section-spacing bg-[#030604] border-b border-neutral-900 text-neutral-300">
+      <section id="past-events" className="section-spacing bg-[#030604] border-b border-neutral-900 text-neutral-300">
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -714,10 +714,10 @@ export default function EventsPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a href="#upcoming-events" className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2">
                 Explore events
                 <ArrowRight size={16} />
-              </button>
+              </a>
               <a 
                 href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
                 target="_blank" 

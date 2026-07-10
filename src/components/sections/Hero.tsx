@@ -157,9 +157,9 @@ export default function Hero() {
               Join Community
               <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
-            <button className="liquid-glass rounded-full px-8 py-3.5 text-white/80 font-medium text-sm hover:bg-white/5 hover:text-white transition-all flex items-center justify-center cursor-pointer">
+            <a href="/events" className="liquid-glass rounded-full px-8 py-3.5 text-white/80 font-medium text-sm hover:bg-white/5 hover:text-white transition-all flex items-center justify-center cursor-pointer">
               Explore Events
-            </button>
+            </a>
           </motion.div>
 
           {/* Stats row */}
