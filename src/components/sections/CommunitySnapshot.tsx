@@ -125,10 +125,15 @@ export default function CommunitySnapshot() {
                 <span className="text-[9px] font-medium text-text-secondary bg-background-tertiary px-2 py-0.5 rounded">#open-source</span>
               </div>
 
-              <button className="w-full btn-primary text-xs py-2">
+              <a 
+                href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full btn-primary text-xs py-2.5 flex items-center justify-center gap-2"
+              >
                 Join our active channels
                 <ArrowRight size={14} />
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

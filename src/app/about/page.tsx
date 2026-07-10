@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Layout from '@components/shared/Layout'
 import AboutHero from '@components/sections/AboutHero'
 import PhilosophySection from '@components/sections/PhilosophySection'
+import InteractiveTeam from '@components/sections/InteractiveTeam'
 import { 
   Code, 
   Rocket, 
@@ -322,62 +323,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 7 — LEADERSHIP / TEAM */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Team leads</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Meet the people behind CodeQuesters
-            </h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-          >
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="card-base bg-card p-6 border border-border hover:border-primary/20 hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
-                whileHover={{ y: -4 }}
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent-purple flex items-center justify-center text-white text-base font-bold font-sans mb-4">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">{member.name}</h4>
-                  <span className="text-[10px] font-semibold text-primary uppercase tracking-wide block mb-3">{member.role}</span>
-                  <p className="text-xs text-text-secondary leading-relaxed mb-6 font-normal">
-                    {member.bio}
-                  </p>
-                </div>
-                <div className="border-t border-border pt-4 mt-auto">
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-primary font-medium hover:underline flex items-center gap-1 w-fit"
-                  >
-                    Connect on LinkedIn
-                    <ArrowUpRight size={13} />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      {/* SECTION 7 — LEADERSHIP / TEAM (Interactive 3D Cards) */}
+      <InteractiveTeam />
 
       {/* SECTION 8 — FUTURE VISION */}
       <section className="section-spacing bg-background-secondary border-b border-border">

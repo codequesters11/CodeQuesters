@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Layout from '@components/shared/Layout'
+import EcosystemMap from '@components/sections/EcosystemMap'
 import { 
   Users, 
   BookOpen, 
@@ -265,37 +266,8 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* SECTION 3 — WHAT HAPPENS INSIDE */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Ecosystem events</span>
-            <h2 className="text-3xl font-bold text-text-primary">
-              What happens inside the community
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {insideCards.map((card, idx) => (
-              <div key={idx} className="card-base bg-card border border-border p-6 hover:border-primary/20 transition-all duration-300 flex items-start gap-4">
-                <div className="bg-background-secondary p-2.5 rounded-md border border-border w-fit">
-                  {card.icon}
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">{card.title}</h4>
-                  <p className="text-xs text-text-secondary leading-normal font-normal">{card.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* SECTION 3 — WHAT HAPPENS INSIDE (Interactive Ecosystem Map) */}
+      <EcosystemMap />
 
       {/* SECTION 4 — COMMUNITY CHANNELS */}
       <section className="section-spacing bg-white border-b border-border">
