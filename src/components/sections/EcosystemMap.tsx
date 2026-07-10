@@ -238,7 +238,7 @@ export default function EcosystemMap() {
                     d={`M ${startX} ${startY} L ${endX} ${endY}`}
                     stroke={isHovered ? '#10B981' : '#10B981'}
                     strokeWidth={isHovered ? 1.75 : 1}
-                    strokeOpacity={isHovered ? 0.45 : isAnyHovered ? 0.05 : 0.15}
+                    strokeOpacity={isHovered ? 0.45 : isAnyHovered ? 0 : 0.15}
                     initial={{ strokeDasharray: lineLength, strokeDashoffset: lineLength }}
                     animate={{ strokeDashoffset: 0 }}
                     exit={{ strokeDashoffset: lineLength }}
@@ -349,7 +349,7 @@ export default function EcosystemMap() {
               className="w-[180px] h-[180px] md:w-[200px] md:h-[200px] rounded-full bg-white border border-emerald-500/15 shadow-[0_8px_30px_rgb(0,0,0,0.04),inset_0_2px_4px_rgba(255,255,255,0.8)] flex flex-col items-center justify-center p-6 text-center cursor-pointer pointer-events-auto select-none"
             >
               {/* 3D CodeQuesters Logo Container */}
-              <div className="relative mb-2 w-14 h-14 flex items-center justify-center">
+              <div className="relative mb-3 w-[72px] h-[72px] flex items-center justify-center">
                 {/* Ambient Glow */}
                 <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-md animate-pulse" />
                 
@@ -364,7 +364,7 @@ export default function EcosystemMap() {
                 <motion.img 
                   src="/logo-CQ-tech.png" 
                   alt="CodeQuesters 3D Logo" 
-                  className="w-10 h-10 object-contain drop-shadow-[0_6px_12px_rgba(16,185,129,0.3)] relative z-10"
+                  className="w-[52px] h-[52px] object-contain drop-shadow-[0_6px_12px_rgba(16,185,129,0.3)] relative z-10"
                   animate={{ 
                     y: [0, -3, 0],
                     rotateY: [0, 15, -15, 0],
@@ -398,7 +398,7 @@ export default function EcosystemMap() {
                 initial={{ x: 0, y: 0, scale: 0, opacity: 0, filter: 'blur(10px)' }}
                 animate={
                   isOpen 
-                    ? { x: offsetCoords.x, y: offsetCoords.y, scale: 1, opacity: 1, filter: 'blur(0px)' } 
+                    ? { x: offsetCoords.x, y: offsetCoords.y, scale: 1, opacity: isAnyHovered && !isHovered ? 0 : 1, filter: 'blur(0px)' } 
                     : { x: 0, y: 0, scale: 0, opacity: 0, filter: 'blur(10px)' }
                 }
                 transition={{
@@ -411,15 +411,13 @@ export default function EcosystemMap() {
                 style={{
                   left: `calc(${containerCenter.x}px - 100px)`,
                   top: `calc(${containerCenter.y}px - 45px)`,
+                  pointerEvents: isAnyHovered && !isHovered ? 'none' : 'auto'
                 }}
               >
                 <motion.div
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   whileHover={{ scale: 1.06, y: -4 }}
-                  animate={{
-                    opacity: isAnyHovered && !isHovered ? 0.35 : 1
-                  }}
                   className={`w-[200px] min-h-[90px] rounded-2xl bg-white border ${
                     isHovered ? 'border-primary shadow-lg shadow-emerald-500/5' : 'border-neutral-100 shadow-sm shadow-black/5'
                   } p-4 flex gap-3 transition-colors duration-300 relative`}
@@ -437,13 +435,14 @@ export default function EcosystemMap() {
                 <AnimatePresence>
                   {isHovered && screenSize !== 'mobile' && (
                     <motion.div
-                      initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                      initial={{ opacity: 0, y: y < 0 ? 15 : -15, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      exit={{ opacity: 0, y: y < 0 ? 10 : -10, scale: 0.95 }}
                       transition={{ type: 'spring', damping: 18, stiffness: 120 }}
                       className={`absolute w-[260px] bg-white/95 backdrop-blur-md border border-neutral-100/90 rounded-2xl shadow-xl p-5 text-left z-40`}
                       style={{
-                        top: '105%',
+                        top: y < 0 ? '105%' : 'auto',
+                        bottom: y < 0 ? 'auto' : '105%',
                         left: x > 0 ? '-30px' : '-30px',
                       }}
                     >
