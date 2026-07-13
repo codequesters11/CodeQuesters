@@ -165,7 +165,7 @@ export default function BuildersPage() {
   return (
     <Layout>
       {/* HERO SECTION — BUILDER WALL */}
-      <section className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
+      <section id="builders" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
         {/* Dynamic Builder Wall in Background */}
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 opacity-20 select-none pointer-events-none">
           {heroWall.map((b, idx) => (

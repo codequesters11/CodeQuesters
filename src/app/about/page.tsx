@@ -163,14 +163,18 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="w-full h-full rounded-lg border border-border bg-gradient-to-br from-primary/10 via-primary-dark/20 to-primary/5 p-6 flex flex-col justify-between group hover:border-primary transition-all duration-300">
-                <div className="flex justify-between items-start">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-primary-dark bg-primary-light px-2 py-0.5 rounded">Ecosystem snapshot</span>
-                  <Users className="w-5 h-5 text-primary" />
+              <div 
+                className="w-full h-full rounded-lg border border-border bg-cover bg-center p-6 flex flex-col justify-between group hover:border-primary transition-all duration-300 relative overflow-hidden"
+                style={{ backgroundImage: "url('/events/IMG_8400.jpg')" }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
+                <div className="flex justify-between items-start relative z-10">
+                  <span className="text-[9px] uppercase font-bold tracking-wider text-white bg-primary px-2 py-0.5 rounded">Ecosystem snapshot</span>
+                  <Users className="w-5 h-5 text-white" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">Collaborative workspace</h4>
-                  <p className="text-[11px] text-text-secondary leading-normal">Students building code, debugging APIs, and deploying applications together.</p>
+                <div className="relative z-10">
+                  <h4 className="text-sm font-semibold text-white mb-1">Collaborative workspace</h4>
+                  <p className="text-[11px] text-white/80 leading-normal font-normal">Students building code, debugging APIs, and deploying applications together.</p>
                 </div>
               </div>
             </motion.div>
@@ -367,17 +371,21 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="w-full h-full rounded-lg border border-border bg-card p-6 flex flex-col justify-between hover:border-primary/20 duration-300">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-accent-blue bg-accent-blue/10 px-2 py-0.5 rounded w-fit">2026/2027 Goals</span>
-                <div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">Ecosystem growth</h4>
-                  <p className="text-xs text-text-secondary leading-relaxed">Scaling active hacker chapters, introducing technical mentorship credits, and partnering with international builder organizations.</p>
+              <div 
+                className="w-full h-full rounded-lg border border-border bg-cover bg-center p-6 flex flex-col justify-between hover:border-primary/20 duration-300 relative overflow-hidden group"
+                style={{ backgroundImage: "url('/events/IMG_5834.jpg')" }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 z-0 transition-opacity duration-300 group-hover:from-black/90" />
+                <span className="text-[10px] uppercase font-bold tracking-wider text-white bg-accent-blue px-2 py-0.5 rounded w-fit relative z-10">2026/2027 Goals</span>
+                <div className="relative z-10">
+                  <h4 className="text-sm font-semibold text-white mb-1">Ecosystem growth</h4>
+                  <p className="text-xs text-white/80 leading-relaxed font-normal">Scaling active hacker chapters, introducing technical mentorship credits, and partnering with international builder organizations.</p>
                 </div>
-                <div className="border-t border-border pt-4 mt-2">
-                  <div className="w-full bg-background-secondary rounded-full h-2">
+                <div className="border-t border-white/20 pt-4 mt-2 relative z-10">
+                  <div className="w-full bg-white/20 rounded-full h-2">
                     <div className="bg-primary h-2 rounded-full w-3/4" />
                   </div>
-                  <span className="text-[10px] text-text-tertiary mt-1 block">75% milestone goals defined</span>
+                  <span className="text-[10px] text-white/60 mt-1 block">75% milestone goals defined</span>
                 </div>
               </div>
             </motion.div>

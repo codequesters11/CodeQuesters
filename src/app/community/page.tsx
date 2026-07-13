@@ -141,11 +141,11 @@ export default function CommunityPage() {
   ]
 
   const gallery = [
-    { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Flame className="w-5 h-5 text-primary" /> },
+    { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden', icon: <Flame className="w-5 h-5 text-primary" />, image: '/events/IMG_8410.jpg' },
     { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <BookOpen className="w-4 h-4 text-accent-blue" /> },
     { title: 'Mentorship reviews', desc: 'Direct code reviews by industry experts.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Sparkles className="w-4 h-4 text-accent-amber" /> },
     { title: 'Community meetups', desc: 'Offline mixer mixers across chapters.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-purple/5 border-l-4 border-l-accent-purple', icon: <Users className="w-4 h-4 text-accent-purple" /> },
-    { title: 'Winner celebrations', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Award className="w-4 h-4 text-text-secondary" /> },
+    { title: 'Winner celebrations', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 row-span-1 bg-black border-l-4 border-l-text-secondary relative overflow-hidden', icon: <Award className="w-4 h-4 text-text-secondary" />, image: '/events/3rd_winner.JPG' },
   ]
 
   const journeys = [
@@ -189,7 +189,7 @@ export default function CommunityPage() {
   return (
     <Layout>
       {/* SECTION 1 — PAGE HERO */}
-      <section className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
+      <section id="community" className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Col (7 cols): Header */}
@@ -387,15 +387,37 @@ export default function CommunityPage() {
                 transition={{ delay: index * 0.05, duration: 0.5 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex justify-between items-start">
-                  <span className="text-xs uppercase font-bold tracking-wider text-text-primary/75 group-hover:text-primary transition-colors">
+                {moment.image && (
+                  <>
+                    <div 
+                      className="absolute inset-0 w-full h-full bg-cover bg-center opacity-70 z-0 transition-transform duration-700 group-hover:scale-105"
+                      style={{ backgroundImage: `url('${moment.image}')` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
+                  </>
+                )}
+
+                <div className="flex justify-between items-start relative z-10">
+                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
+                    moment.image 
+                      ? 'text-white/90 group-hover:text-white' 
+                      : 'text-text-primary/75 group-hover:text-primary'
+                  }`}>
                     {moment.title}
                   </span>
-                  <div className="bg-white p-1.5 rounded-md border border-border">
+                  <div className={`p-1.5 rounded-md border ${
+                    moment.image 
+                      ? 'bg-black/40 border-white/10 text-white' 
+                      : 'bg-white border-border text-text-secondary'
+                  }`}>
                     {moment.icon}
                   </div>
                 </div>
-                <p className="text-[10px] md:text-xs text-text-secondary leading-relaxed font-normal">
+                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
+                  moment.image 
+                    ? 'text-white/80' 
+                    : 'text-text-secondary'
+                }`}>
                   {moment.desc}
                 </p>
               </motion.div>

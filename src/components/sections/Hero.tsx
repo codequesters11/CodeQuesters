@@ -99,7 +99,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="min-h-screen bg-black overflow-hidden flex flex-col relative">
+    <section id="hero" className="min-h-screen bg-black overflow-hidden flex flex-col relative">
       {/* Background Video */}
       <video
         ref={videoRef}
