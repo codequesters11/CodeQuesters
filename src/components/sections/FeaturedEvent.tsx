@@ -29,12 +29,15 @@ export default function FeaturedEvent() {
           transition={{ duration: 0.6 }}
         >
           {/* Banner Placeholder (5 cols) */}
-          <div className="lg:col-span-5 min-h-[220px] bg-gradient-to-br from-primary via-primary-dark to-accent-blue p-8 flex flex-col justify-between text-white relative">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl" />
-            <span className="self-start text-[10px] uppercase font-bold tracking-wider text-primary bg-white px-2.5 py-1 rounded-md shadow-sm">
+          <div 
+            className="lg:col-span-5 min-h-[220px] bg-cover bg-center p-8 flex flex-col justify-between text-white relative overflow-hidden"
+            style={{ backgroundImage: "url('/events/IMG_8400.jpg')" }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
+            <span className="self-start text-[10px] uppercase font-bold tracking-wider text-primary bg-white px-2.5 py-1 rounded-md shadow-sm relative z-10">
               Registration open
             </span>
-            <div>
+            <div className="relative z-10">
               <span className="text-white/80 text-xs font-semibold uppercase tracking-wider block mb-1">CodeQuest 2026</span>
               <h3 className="text-2xl font-bold leading-tight">National builder hack sprint</h3>
             </div>

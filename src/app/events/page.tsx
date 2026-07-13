@@ -131,7 +131,7 @@ export default function EventsPage() {
   const gallery = [
     { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Flame className="w-5 h-5 text-primary" /> },
     { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <GraduationCap className="w-4 h-4 text-accent-blue" /> },
-    { title: 'Winner moments', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Trophy className="w-4 h-4 text-accent-amber" /> },
+    { title: 'Winner moments', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-amber relative overflow-hidden', icon: <Trophy className="w-4 h-4 text-accent-amber" />, image: '/events/2nd_winner.JPG' },
     { title: 'Peer networking', desc: 'Connecting developers over ideas.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-purple/5 border-l-4 border-l-accent-purple', icon: <Users className="w-4 h-4 text-accent-purple" /> },
     { title: 'Mentorship review', desc: 'Direct code architecture feedback.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Sparkles className="w-4 h-4 text-text-secondary" /> },
   ]
@@ -170,7 +170,7 @@ export default function EventsPage() {
   return (
     <Layout>
       {/* SECTION 1 — PAGE HERO */}
-      <section className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
+      <section id="events" className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Col (7 cols): Header copy */}
@@ -261,11 +261,15 @@ export default function EventsPage() {
           {/* Featured Event Card layout */}
           <div className="card-base p-0 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-border bg-card">
             {/* Banner Left (5 cols) */}
-            <div className="lg:col-span-5 min-h-[240px] bg-gradient-to-br from-primary via-primary-dark to-accent-blue p-8 flex flex-col justify-between text-white relative">
-              <span className="self-start text-[10px] uppercase font-bold tracking-wider text-primary bg-white px-2.5 py-1 rounded shadow-sm">
+            <div 
+              className="lg:col-span-5 min-h-[240px] bg-cover bg-center p-8 flex flex-col justify-between text-white relative overflow-hidden"
+              style={{ backgroundImage: "url('/events/IMG_8401.jpg')" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
+              <span className="self-start text-[10px] uppercase font-bold tracking-wider text-primary bg-white px-2.5 py-1 rounded shadow-sm relative z-10">
                 Featured
               </span>
-              <div>
+              <div className="relative z-10">
                 <span className="text-white/80 text-xs font-semibold uppercase tracking-wider block mb-1">CodeQuest 2026</span>
                 <h3 className="text-2xl font-bold leading-tight">National builder hack sprint</h3>
               </div>
@@ -492,15 +496,37 @@ export default function EventsPage() {
                 transition={{ delay: index * 0.05, duration: 0.5 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex justify-between items-start">
-                  <span className="text-xs uppercase font-bold tracking-wider text-text-primary/75 group-hover:text-primary transition-colors">
+                {moment.image && (
+                  <>
+                    <div 
+                      className="absolute inset-0 w-full h-full bg-cover bg-center opacity-70 z-0 transition-transform duration-700 group-hover:scale-105"
+                      style={{ backgroundImage: `url('${moment.image}')` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
+                  </>
+                )}
+
+                <div className="flex justify-between items-start relative z-10">
+                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
+                    moment.image 
+                      ? 'text-white/90 group-hover:text-white' 
+                      : 'text-text-primary/75 group-hover:text-primary'
+                  }`}>
                     {moment.title}
                   </span>
-                  <div className="bg-white p-1.5 rounded-md border border-border">
+                  <div className={`p-1.5 rounded-md border ${
+                    moment.image 
+                      ? 'bg-black/40 border-white/10 text-white' 
+                      : 'bg-white border-border text-text-secondary'
+                  }`}>
                     {moment.icon}
                   </div>
                 </div>
-                <p className="text-[10px] md:text-xs text-text-secondary leading-relaxed font-normal">
+                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
+                  moment.image 
+                    ? 'text-white/80' 
+                    : 'text-text-secondary'
+                }`}>
                   {moment.desc}
                 </p>
               </motion.div>

@@ -118,14 +118,14 @@ export default function PartnersPage() {
     { title: 'Flagship mixers', desc: 'Co-running weekend sprints and panels.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Users className="w-5 h-5 text-primary" /> },
     { title: 'Signing meetups', desc: 'Setting chapter guidelines inside college hubs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <Landmark className="w-4 h-4 text-accent-blue" /> },
     { title: 'Developer bootcamps', desc: 'Coordinating workshops inside university labs.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Laptop className="w-4 h-4 text-accent-amber" /> },
-    { title: 'VC pitch panels', desc: 'Reviewing hackathon MVPs with startup partners.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-purple/5 border-l-4 border-l-accent-purple', icon: <Rocket className="w-4 h-4 text-accent-purple" /> },
+    { title: 'VC pitch panels', desc: 'Reviewing hackathon MVPs with startup partners.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Rocket className="w-4 h-4 text-accent-purple" />, video: '/events/mentors_discussing_2.MOV' },
     { title: 'Chapter mixer sittings', desc: 'Connecting students offline over coffee.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Compass className="w-4 h-4 text-text-secondary" /> },
   ]
 
   return (
     <Layout>
       {/* HERO SECTION — ECOSYSTEM NETWORK */}
-      <section className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
+      <section id="partners" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
         {/* Node Network Visual Background SVG Overlay */}
         <div className="absolute inset-0 opacity-[0.15] select-none pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -663,15 +663,42 @@ export default function PartnersPage() {
                 transition={{ delay: index * 0.05, duration: 0.5 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex justify-between items-start">
-                  <span className="text-xs uppercase font-bold tracking-wider text-text-primary/75 group-hover:text-primary transition-colors">
+                {moment.video && (
+                  <>
+                    <video
+                      src={moment.video}
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      preload="auto"
+                      className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
+                  </>
+                )}
+
+                <div className="flex justify-between items-start relative z-10">
+                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
+                    moment.video 
+                      ? 'text-white/90 group-hover:text-white' 
+                      : 'text-text-primary/75 group-hover:text-primary'
+                  }`}>
                     {moment.title}
                   </span>
-                  <div className="bg-white p-1.5 rounded-md border border-border">
+                  <div className={`p-1.5 rounded-md border ${
+                    moment.video 
+                      ? 'bg-black/40 border-white/10 text-white' 
+                      : 'bg-white border-border text-text-secondary'
+                  }`}>
                     {moment.icon}
                   </div>
                 </div>
-                <p className="text-[10px] md:text-xs text-text-secondary leading-relaxed font-normal">
+                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
+                  moment.video 
+                    ? 'text-white/80' 
+                    : 'text-text-secondary'
+                }`}>
                   {moment.desc}
                 </p>
               </motion.div>

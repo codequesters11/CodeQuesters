@@ -36,6 +36,7 @@ export default function ContactPage() {
   })
   
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const chipsList = ["Brand", "Hackathons", "Partnership", "Speaker", "Mentoring", "Community", "Sponsor"]
@@ -66,20 +67,50 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        organization: '',
-        project: '',
-        proposal: '',
-        message: ''
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('https://formspree.io/f/team.codequesters@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization,
+          project: formData.project,
+          proposal: formData.proposal,
+          message: formData.message,
+          selectedChips: selectedChips
+        })
       })
-    }, 4000)
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          organization: '',
+          project: '',
+          proposal: '',
+          message: ''
+        })
+        setSelectedChips([])
+      } else {
+        alert('Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      alert('Error submitting form. Please check your network and try again.')
+    } finally {
+      setIsSubmitting(false)
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 4000)
+    }
   }
 
 
@@ -259,7 +290,7 @@ export default function ContactPage() {
       </motion.header>
 
       {/* MAIN CONTENT CONTAINER */}
-      <section className="relative min-h-screen pt-36 pb-16 px-6 bg-white text-neutral-900 overflow-hidden flex flex-col justify-between">
+      <section id="contact" className="relative min-h-screen pt-36 pb-16 px-6 bg-white text-neutral-900 overflow-hidden flex flex-col justify-between">
         
         {/* Subtle radial green glow behind the robot */}
         <div 
@@ -514,11 +545,24 @@ export default function ContactPage() {
                 {/* Submit Button with hover scale microinteraction */}
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.03 }}
-                  className="w-full bg-[#0a894f] hover:bg-[#087342] text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors duration-200 text-sm shadow-sm"
+                  disabled={isSubmitting}
+                  whileHover={isSubmitting ? {} : { scale: 1.03 }}
+                  className="w-full bg-[#0a894f] hover:bg-[#087342] text-white font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors duration-200 text-sm shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send size={15} />
-                  Submit Inquiry
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    <>
+                      <Send size={15} />
+                      Submit Inquiry
+                    </>
+                  )}
                 </motion.button>
               </form>
             </motion.div>

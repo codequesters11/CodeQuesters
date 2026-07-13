@@ -9,37 +9,43 @@ export default function Highlights() {
       title: 'Hacking sprint action',
       description: '36 hours of focused execution, collaboration, and building.',
       icon: <Flame className="w-5 h-5 text-primary" />,
-      class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary',
+      class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden',
+      video: '/events/builders_discussing.MOV',
     },
     {
       title: 'Mentor reviews',
       description: 'Getting feedback directly from senior experts.',
       icon: <Lightbulb className="w-4 h-4 text-accent-purple" />,
-      class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-purple/10 to-accent-blue/5 border-l-4 border-l-accent-purple',
+      class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-accent-purple relative overflow-hidden',
+      video: '/events/mentors_discussing_1.MOV',
     },
     {
       title: 'Winner celebrations',
       description: 'The excitement of building something that wins.',
       icon: <Trophy className="w-4 h-4 text-accent-amber" />,
-      class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/10 to-accent-amber/5 border-l-4 border-l-accent-amber',
+      class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-amber relative overflow-hidden',
+      image: '/events/1st_winner.JPG',
     },
     {
       title: 'Keynote stage',
-      description: 'Successful founders sharing their lessons.',
+      description: 'Successful founders sharing lessons on hackathons and the market.',
       icon: <Users className="w-4 h-4 text-accent-blue" />,
-      class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-blue/10 to-primary/5 border-l-4 border-l-accent-blue',
+      class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-blue relative overflow-hidden',
+      video: '/events/IMG_8143.MOV',
     },
     {
       title: 'Late night brainstorming',
       description: 'Connecting over pizza, caffeine, and code architecture details.',
       icon: <Coffee className="w-4 h-4 text-text-secondary" />,
-      class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary',
+      class: 'col-span-2 row-span-1 bg-black border-l-4 border-l-text-secondary relative overflow-hidden',
+      image: '/events/IMG_8404.jpg',
     },
     {
       title: 'Closing group photos',
       description: 'Memories of a weekend full of engineering and learning.',
       icon: <Camera className="w-4 h-4 text-primary" />,
-      class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-primary/10 to-accent-purple/15 border-l-4 border-l-primary',
+      class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-primary relative overflow-hidden',
+      image: '/events/IMG_5835.jpg',
     },
   ]
 
@@ -74,15 +80,52 @@ export default function Highlights() {
               transition={{ delay: index * 0.05, duration: 0.5 }}
               whileHover={{ y: -4 }}
             >
-              <div className="flex justify-between items-start">
-                <span className="text-xs uppercase font-bold tracking-wider text-text-primary/75 group-hover:text-primary transition-colors">
+              {moment.video && (
+                <>
+                  <video
+                    src={moment.video}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    preload="auto"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
+                </>
+              )}
+
+              {moment.image && (
+                <>
+                  <div 
+                    className="absolute inset-0 w-full h-full bg-cover bg-center opacity-70 z-0 transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${moment.image}')` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
+                </>
+              )}
+
+              <div className="flex justify-between items-start relative z-10">
+                <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
+                  moment.video || moment.image 
+                    ? 'text-white/90 group-hover:text-white' 
+                    : 'text-text-primary/75 group-hover:text-primary'
+                }`}>
                   {moment.title}
                 </span>
-                <div className="bg-white p-1.5 rounded-md border border-border">
+                <div className={`p-1.5 rounded-md border ${
+                  moment.video || moment.image 
+                    ? 'bg-black/40 border-white/10 text-white' 
+                    : 'bg-white border-border text-text-secondary'
+                }`}>
                   {moment.icon}
                 </div>
               </div>
-              <p className="text-[11px] md:text-xs text-text-secondary leading-relaxed font-normal">
+              <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
+                moment.video || moment.image 
+                  ? 'text-white/80' 
+                  : 'text-text-secondary'
+              }`}>
                 {moment.description}
               </p>
             </motion.div>
