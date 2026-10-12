@@ -729,16 +729,22 @@ export default function PartnersPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a 
+                href="/contact" 
+                className="w-full sm:w-auto btn-primary text-sm py-3 px-8 flex items-center justify-center gap-2"
+              >
                 Become a partner
                 <ArrowRight size={16} />
-              </button>
+              </a>
               <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
                 Schedule a discussion
               </button>
-              <button className="w-full sm:w-auto btn-outline text-sm py-3 px-8 flex items-center justify-center gap-2">
+              <a 
+                href="/contact" 
+                className="w-full sm:w-auto btn-outline text-sm py-3 px-8 flex items-center justify-center gap-2"
+              >
                 Contact us
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

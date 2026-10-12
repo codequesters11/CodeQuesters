@@ -142,9 +142,9 @@ export default function CommunityPage() {
 
   const gallery = [
     { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden', icon: <Flame className="w-5 h-5 text-primary" />, image: '/events/IMG_8410.jpg' },
-    { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <BookOpen className="w-4 h-4 text-accent-blue" /> },
+    { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-accent-blue relative overflow-hidden', icon: <BookOpen className="w-4 h-4 text-accent-blue" />, image: '/events/DSC_2270.JPG' },
     { title: 'Mentorship reviews', desc: 'Direct code reviews by industry experts.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Sparkles className="w-4 h-4 text-accent-amber" /> },
-    { title: 'Community meetups', desc: 'Offline mixer mixers across chapters.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-purple/5 border-l-4 border-l-accent-purple', icon: <Users className="w-4 h-4 text-accent-purple" /> },
+    { title: 'Community meetups', desc: 'Offline mixer mixers across chapters.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Users className="w-4 h-4 text-accent-purple" />, image: '/events/DSC_2464.JPG' },
     { title: 'Winner celebrations', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 row-span-1 bg-black border-l-4 border-l-text-secondary relative overflow-hidden', icon: <Award className="w-4 h-4 text-text-secondary" />, image: '/events/3rd_winner.JPG' },
   ]
 

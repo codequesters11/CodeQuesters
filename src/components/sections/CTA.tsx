@@ -35,9 +35,12 @@ export default function CTA() {
               Join community
               <ArrowRight size={16} />
             </a>
-            <button className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2">
+            <a 
+              href="/contact" 
+              className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2"
+            >
               Partner with us
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>
