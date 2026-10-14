@@ -21,7 +21,7 @@ export default function FeaturedVideo() {
         >
           {/* Video */}
           <video
-            src="/events/IMG_8409.MOV"
+            src="/events-optimized/IMG_8409.mp4"
             muted
             autoPlay
             loop

@@ -118,7 +118,7 @@ export default function PartnersPage() {
     { title: 'Flagship mixers', desc: 'Co-running weekend sprints and panels.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Users className="w-5 h-5 text-primary" /> },
     { title: 'Signing meetups', desc: 'Setting chapter guidelines inside college hubs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <Landmark className="w-4 h-4 text-accent-blue" /> },
     { title: 'Developer bootcamps', desc: 'Coordinating workshops inside university labs.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Laptop className="w-4 h-4 text-accent-amber" /> },
-    { title: 'VC pitch panels', desc: 'Reviewing hackathon MVPs with startup partners.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Rocket className="w-4 h-4 text-accent-purple" />, video: '/events/mentors_discussing_2.MOV' },
+    { title: 'VC pitch panels', desc: 'Reviewing hackathon MVPs with startup partners.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Rocket className="w-4 h-4 text-accent-purple" />, video: '/events-optimized/mentors_discussing_2.mp4' },
     { title: 'Chapter mixer sittings', desc: 'Connecting students offline over coffee.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Compass className="w-4 h-4 text-text-secondary" /> },
   ]
 

@@ -10,14 +10,14 @@ export default function Highlights() {
       description: '36 hours of focused execution, collaboration, and building.',
       icon: <Flame className="w-5 h-5 text-primary" />,
       class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden',
-      video: '/events/builders_discussing.MOV',
+      video: '/events-optimized/builders_discussing.mp4',
     },
     {
       title: 'Mentor reviews',
       description: 'Getting feedback directly from senior experts.',
       icon: <Lightbulb className="w-4 h-4 text-accent-purple" />,
       class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-accent-purple relative overflow-hidden',
-      video: '/events/mentors_discussing_1.MOV',
+      video: '/events-optimized/mentors_discussing_1.mp4',
     },
     {
       title: 'Winner celebrations',
@@ -31,7 +31,7 @@ export default function Highlights() {
       description: 'Successful founders sharing lessons on hackathons and the market.',
       icon: <Users className="w-4 h-4 text-accent-blue" />,
       class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-blue relative overflow-hidden',
-      video: '/events/IMG_8143.MOV',
+      video: '/events-optimized/IMG_8143.mp4',
     },
     {
       title: 'Late night brainstorming',
