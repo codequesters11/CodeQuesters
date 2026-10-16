@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import LazyVideo from '@components/shared/LazyVideo'
 
 export default function FeaturedVideo() {
   const ref = useRef(null)
@@ -20,13 +21,8 @@ export default function FeaturedVideo() {
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
           {/* Video */}
-          <video
+          <LazyVideo
             src="/events-optimized/IMG_8409.mp4"
-            muted
-            autoPlay
-            loop
-            playsInline
-            preload="auto"
             className="w-full h-full object-cover"
           />
 

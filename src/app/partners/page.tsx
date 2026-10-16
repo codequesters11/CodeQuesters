@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Layout from '@components/shared/Layout'
+import LazyVideo from '@components/shared/LazyVideo'
 import { 
   Users, 
   Code2, 
@@ -665,13 +666,8 @@ export default function PartnersPage() {
               >
                 {moment.video && (
                   <>
-                    <video
+                    <LazyVideo
                       src={moment.video}
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
-                      preload="auto"
                       className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />

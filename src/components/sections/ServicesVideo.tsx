@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import LazyVideo from '@components/shared/LazyVideo'
 
 export default function ServicesVideo() {
   const ref = useRef(null)
@@ -67,13 +68,8 @@ export default function ServicesVideo() {
             >
               {/* Video area */}
               <div className="aspect-video relative overflow-hidden">
-                <video
+                <LazyVideo
                   src={service.video}
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  preload="auto"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
