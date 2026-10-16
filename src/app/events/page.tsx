@@ -4,22 +4,22 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
 import Layout from '@components/shared/Layout'
-import { 
-  Calendar, 
-  MapPin, 
-  Users, 
-  ArrowRight, 
+import {
+  Calendar,
+  MapPin,
+  Users,
+  ArrowRight,
   ArrowUpRight,
-  Trophy, 
-  GraduationCap, 
-  Cpu, 
-  GitBranch, 
-  Coffee, 
-  Briefcase, 
-  Flame, 
-  Sparkles, 
-  Plus, 
-  Minus 
+  Trophy,
+  GraduationCap,
+  Cpu,
+  GitBranch,
+  Coffee,
+  Briefcase,
+  Flame,
+  Sparkles,
+  Plus,
+  Minus
 } from 'lucide-react'
 
 export default function EventsPage() {
@@ -280,7 +280,7 @@ export default function EventsPage() {
           {/* Featured Event Card layout */}
           <div className="card-base p-0 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-border bg-card">
             {/* Banner Left (5 cols) */}
-            <div 
+            <div
               className="lg:col-span-5 min-h-[240px] bg-cover bg-center p-8 flex flex-col justify-between text-white relative overflow-hidden"
               style={{ backgroundImage: "url('/events/IMG_8401.jpg')" }}
             >
@@ -412,23 +412,23 @@ export default function EventsPage() {
                 Past events
               </h2>
               <span className="bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/20 rounded-full px-3 py-0.5 text-xs font-semibold">
-                4 completed
+                6 completed
               </span>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {past.map((event, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-[#080d0a] border border-neutral-900 rounded-lg overflow-hidden flex flex-col justify-between hover:border-primary/35 transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 {/* Poster container */}
                 <div className="relative w-full aspect-[4/5] bg-neutral-950 overflow-hidden border-b border-neutral-900">
-                  <img 
-                    src={event.image} 
-                    alt={event.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-103" 
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-103"
                   />
                   {/* Floating Completed Badge */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-emerald-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
@@ -441,8 +441,8 @@ export default function EventsPage() {
                   {/* Floating Tags */}
                   <div className="absolute top-3 right-3 flex items-center gap-1.5">
                     {event.tags.map((tag, tIdx) => (
-                      <span 
-                        key={tIdx} 
+                      <span
+                        key={tIdx}
                         className="bg-black/65 text-white text-[10px] font-semibold px-2.5 py-1 rounded backdrop-blur-sm border border-neutral-800/40"
                       >
                         {tag}
@@ -517,7 +517,7 @@ export default function EventsPage() {
               >
                 {moment.image && (
                   <>
-                    <div 
+                    <div
                       className="absolute inset-0 w-full h-full bg-cover bg-center opacity-70 z-0 transition-transform duration-700 group-hover:scale-105"
                       style={{ backgroundImage: `url('${moment.image}')` }}
                     />
@@ -526,26 +526,23 @@ export default function EventsPage() {
                 )}
 
                 <div className="flex justify-between items-start relative z-10">
-                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
-                    moment.image 
-                      ? 'text-white/90 group-hover:text-white' 
+                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${moment.image
+                      ? 'text-white/90 group-hover:text-white'
                       : 'text-text-primary/75 group-hover:text-primary'
-                  }`}>
+                    }`}>
                     {moment.title}
                   </span>
-                  <div className={`p-1.5 rounded-md border ${
-                    moment.image 
-                      ? 'bg-black/40 border-white/10 text-white' 
+                  <div className={`p-1.5 rounded-md border ${moment.image
+                      ? 'bg-black/40 border-white/10 text-white'
                       : 'bg-white border-border text-text-secondary'
-                  }`}>
+                    }`}>
                     {moment.icon}
                   </div>
                 </div>
-                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
-                  moment.image 
-                    ? 'text-white/80' 
+                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${moment.image
+                    ? 'text-white/80'
                     : 'text-text-secondary'
-                }`}>
+                  }`}>
                   {moment.desc}
                 </p>
               </motion.div>
@@ -714,8 +711,8 @@ export default function EventsPage() {
             {faqs.map((faq, idx) => {
               const isOpen = activeFaq === idx
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-card border border-border rounded-lg overflow-hidden transition-all duration-300"
                 >
                   <button
@@ -763,10 +760,10 @@ export default function EventsPage() {
                 Explore events
                 <ArrowRight size={16} />
               </a>
-              <a 
-                href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://chat.whatsapp.com/Drc3SOwUSJiJnV3ZZgQz7I?mode=ac_t"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto btn-secondary text-sm py-3 px-8 flex items-center justify-center gap-2"
               >
                 Join community

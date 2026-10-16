@@ -82,7 +82,7 @@ export default function Hero() {
   }, [])
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.15, delayChildren: 0.3 },
@@ -132,7 +132,8 @@ export default function Hero() {
 
           {/* Main heading */}
           <motion.h1
-            variants={itemVariants}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 tracking-tight leading-[1.1]"
             style={{ fontFamily: "var(--font-instrument-serif), serif" }}
           >
