@@ -4,33 +4,28 @@ import React, { useRef, useState, useEffect } from 'react'
 
 interface LazyVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string
-  poster?: string
-  className?: string
   rootMargin?: string
 }
 
 export default function LazyVideo({
   src,
-  poster,
-  className = '',
   rootMargin = '200px',
   autoPlay = true,
   loop = true,
   muted = true,
   playsInline = true,
+  className = '',
   ...props
 }: LazyVideoProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [shouldLoad, setShouldLoad] = useState(false)
   const [isInViewport, setIsInViewport] = useState(false)
 
-  // IntersectionObserver to defer setting src / loading until near viewport
+  // IntersectionObserver directly on the video element
   useEffect(() => {
-    const el = containerRef.current
+    const el = videoRef.current
     if (!el) return
 
-    // If IntersectionObserver is not supported, load immediately
     if (typeof IntersectionObserver === 'undefined') {
       setShouldLoad(true)
       setIsInViewport(true)
@@ -58,7 +53,7 @@ export default function LazyVideo({
     }
   }, [rootMargin])
 
-  // Manage playback state safely without uncaught promise errors or redundant calls
+  // Play/pause control without promise rejections
   useEffect(() => {
     const video = videoRef.current
     if (!video || !shouldLoad || !autoPlay) return
@@ -66,9 +61,7 @@ export default function LazyVideo({
     if (isInViewport) {
       const playPromise = video.play()
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Ignore auto-play abort or user interaction errors
-        })
+        playPromise.catch(() => {})
       }
     } else {
       video.pause()
@@ -76,18 +69,15 @@ export default function LazyVideo({
   }, [isInViewport, shouldLoad, autoPlay])
 
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
-      <video
-        ref={videoRef}
-        src={shouldLoad ? src : undefined}
-        poster={poster}
-        muted={muted}
-        loop={loop}
-        playsInline={playsInline}
-        preload="none"
-        className="w-full h-full object-cover"
-        {...props}
-      />
-    </div>
+    <video
+      ref={videoRef}
+      src={shouldLoad ? src : undefined}
+      muted={muted}
+      loop={loop}
+      playsInline={playsInline}
+      preload="none"
+      className={className}
+      {...props}
+    />
   )
 }

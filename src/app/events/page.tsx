@@ -91,6 +91,24 @@ export default function EventsPage() {
 
   const past = [
     {
+      title: 'CUBE 2026 Hackathon',
+      date: 'Oct 10, 2026',
+      location: 'Hybrid / Virtual',
+      by: 'sydon × CodeQuesters',
+      status: 'Ended',
+      image: '/events/cube-hackathon-2026.jpg',
+      tags: ['Hackathon', '₹50,000 Prize'],
+    },
+    {
+      title: 'WTFigma! Product Design Workshop',
+      date: 'Sept 27, 2026 - 5:00 PM IST',
+      location: 'Virtual',
+      by: 'CodeQuesters',
+      status: 'Ended',
+      image: '/events/wtfigma-workshop.png',
+      tags: ['Product Design', 'Figma'],
+    },
+    {
       title: 'Compete & Win: Summer Internship Challenge 2026',
       date: 'May 31, 2026 - 9:00 AM – 5:00 PM IST',
       location: 'CS Coworking Spaces, Raidurg, Hyderabad + Virtual',
@@ -137,6 +155,7 @@ export default function EventsPage() {
   ]
 
   const winners = [
+    { name: 'Swarnima Shukla', role: 'Speaker, WTFigma Workshop', story: 'Ex-Product Designer at Meesho & Internshala who guided builders through UI/UX principles, design systems, and rapid prototyping in Figma.', icon: '🎨', image: '/events/wtfigma-workshop.png', tags: ['Product Design', 'Figma'] },
     { name: 'Abhishek Parmani', role: 'Main Speaker, GitHub Workshop', story: 'Led the GitHub to Income workshop — turning open-source contributions into real career opportunities for 300+ students.', icon: '🏆', image: '/events/github_speaker_post.jpg', tags: ['GitHub', 'Open Source'] },
     { name: 'GradSkills × CodeQuesters', role: 'Summership 2026 Organizers', story: 'Organized the Summer Internship Challenge 2026 — a full-day build, perform, and get-hired event at CS Coworking Spaces, Hyderabad.', icon: '💼', image: '/events/summership-2026.jpg', tags: ['Internship', 'AI'] },
     { name: 'T Rishik Goud', role: 'Speaker, Supervity Workshop', story: 'AI Engineer at Supervity who ran a live build session — from zero to deployed AI Agent on screen, no theory, pure building.', icon: '🚀', image: '/events/supervity-workshop.png', tags: ['AI Agents', 'Workshop'] },
