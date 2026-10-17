@@ -165,7 +165,7 @@ export default function BuildersPage() {
   return (
     <Layout>
       {/* HERO SECTION — BUILDER WALL */}
-      <section id="builders" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
+      <section id="builders" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden pt-36 pb-20">
         {/* Dynamic Builder Wall in Background */}
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-6 opacity-20 select-none pointer-events-none">
           {heroWall.map((b, idx) => (
@@ -252,14 +252,27 @@ export default function BuildersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left (5 cols): Photo visual */}
             <div className="lg:col-span-5 h-[280px]">
-              <div className="w-full h-full rounded-lg border border-border bg-gradient-to-br from-primary/10 via-primary-dark/20 to-primary/5 p-6 flex flex-col justify-between group hover:border-primary transition-all duration-300">
-                <div className="flex justify-between items-start">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-primary-dark bg-primary-light px-2 py-0.5 rounded">Featured case</span>
-                  <Trophy className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-text-primary mb-1">Amit Sharma</h4>
-                  <p className="text-[10px] text-text-secondary leading-normal">NSUT Delhi | Hackathon Winner to Chapter Lead</p>
+              <div className="w-full h-full rounded-lg border border-border overflow-hidden relative group hover:border-primary transition-all duration-300">
+                <img
+                  src="/events/IMG_5777.JPG"
+                  alt="Amit Sharma - Builder of the Month"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectPosition: 'center 20%' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10 z-10" />
+                <div className="relative z-20 h-full p-6 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded backdrop-blur-sm">
+                      Featured case
+                    </span>
+                    <div className="p-1.5 rounded-md bg-black/40 border border-white/10 text-white backdrop-blur-sm">
+                      <Trophy className="w-4 h-4 text-amber-400" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-0.5">Amit Sharma</h4>
+                    <p className="text-[10px] text-white/80 leading-normal">NSUT Delhi | Hackathon Winner to Chapter Lead</p>
+                  </div>
                 </div>
               </div>
             </div>

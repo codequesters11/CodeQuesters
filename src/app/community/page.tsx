@@ -140,13 +140,6 @@ export default function CommunityPage() {
     },
   ]
 
-  const gallery = [
-    { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden', icon: <Flame className="w-5 h-5 text-primary" />, image: '/events/IMG_8410.jpg' },
-    { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-accent-blue relative overflow-hidden', icon: <BookOpen className="w-4 h-4 text-accent-blue" />, image: '/events/DSC_2270.JPG' },
-    { title: 'Mentorship reviews', desc: 'Direct code reviews by industry experts.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Sparkles className="w-4 h-4 text-accent-amber" /> },
-    { title: 'Community meetups', desc: 'Offline mixer mixers across chapters.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Users className="w-4 h-4 text-accent-purple" />, image: '/events/DSC_2464.JPG' },
-    { title: 'Winner celebrations', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 row-span-1 bg-black border-l-4 border-l-text-secondary relative overflow-hidden', icon: <Award className="w-4 h-4 text-text-secondary" />, image: '/events/3rd_winner.JPG' },
-  ]
 
   const journeys = [
     { name: 'Omkar Rane', role: 'Hackathon Winner', details: 'Built a visual developer proxy. Met his co-founder at CodeQuest, launched MVP, and raised pre-seed seed round.', tag: 'Startup Founder' },
@@ -189,7 +182,7 @@ export default function CommunityPage() {
   return (
     <Layout>
       {/* SECTION 1 — PAGE HERO */}
-      <section id="community" className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
+      <section id="community" className="section-spacing pt-32 md:pt-40 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Col (7 cols): Header */}
@@ -217,19 +210,44 @@ export default function CommunityPage() {
               </div>
             </div>
 
-            {/* Right Col (5 cols): Grid Collage visual */}
+            {/* Right Col (5 cols): Branded Community Metrics Cards */}
             <div className="lg:col-span-5 h-[320px] relative">
               <div className="grid grid-cols-2 gap-3 h-full">
-                <div className="rounded-lg border border-border bg-gradient-to-br from-primary/15 via-primary-dark/20 to-primary/5 p-4 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-primary-dark bg-primary-light px-2 py-0.5 rounded w-fit mb-2">Hacking stage</span>
-                  <h4 className="text-xs font-semibold text-text-primary">Sprint collaboration</h4>
-                </div>
-                <div className="grid grid-rows-2 gap-3">
-                  <div className="rounded-lg border border-border bg-gradient-to-br from-accent-blue/15 to-accent-blue/5 p-3 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                    <h4 className="text-xs font-semibold text-text-primary">Peer training</h4>
+                {/* Tall left card: Chapter meetups */}
+                <div className="rounded-2xl border border-border overflow-hidden relative group hover:border-primary transition-all duration-300">
+                  <img src="/events/madhapur-event-1.jpg" alt="Chapter meetups" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 z-10" />
+                  <div className="relative z-20 h-full p-5 flex flex-col justify-end">
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded w-fit mb-2 backdrop-blur-sm">
+                      Offline mixers
+                    </span>
+                    <h4 className="text-sm font-semibold text-white">Chapter Meetups</h4>
+                    <p className="text-[11px] text-white/70 line-clamp-1 mt-0.5">Hyderabad & Delhi hubs</p>
                   </div>
-                  <div className="rounded-lg border border-border bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 p-3 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                    <h4 className="text-xs font-semibold text-text-primary">Chapter meetups</h4>
+                </div>
+
+                {/* Right col: 2 stacked metric cards */}
+                <div className="grid grid-rows-2 gap-3">
+                  <div className="rounded-2xl border border-border bg-gradient-to-br from-neutral-900 to-black p-4 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 relative overflow-hidden group">
+                    <div className="absolute -right-4 -bottom-4 w-20 h-20 bg-primary/10 rounded-full blur-xl pointer-events-none group-hover:bg-primary/20 transition-colors" />
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-sky-400 bg-sky-950/80 border border-sky-500/30 px-1.5 py-0.5 rounded w-fit">
+                      Global Reach
+                    </span>
+                    <div>
+                      <h4 className="text-2xl font-bold text-white tracking-tight">3,200+</h4>
+                      <p className="text-[11px] text-neutral-400 font-normal">Active Builders & Mentors</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-border bg-gradient-to-br from-neutral-900 to-black p-4 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 relative overflow-hidden group">
+                    <div className="absolute -right-4 -bottom-4 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl pointer-events-none group-hover:bg-emerald-500/20 transition-colors" />
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-1.5 py-0.5 rounded w-fit">
+                      Impact
+                    </span>
+                    <div>
+                      <h4 className="text-2xl font-bold text-white tracking-tight">₹3,00,000</h4>
+                      <p className="text-[11px] text-neutral-400 font-normal">Prize Pools Distributed</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -359,72 +377,7 @@ export default function CommunityPage() {
         </div>
       </section>
 
-      {/* SECTION 6 — COMMUNITY GALLERY */}
-      <section className="section-spacing bg-white border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Snapshots</span>
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Community in action
-            </h2>
-          </motion.div>
 
-          {/* Masonry gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
-            {gallery.map((moment, index) => (
-              <motion.div
-                key={index}
-                className={`rounded-lg border border-border p-5 flex flex-col justify-between hover:border-primary/20 hover:shadow-sm duration-300 group cursor-pointer ${moment.class}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                whileHover={{ y: -4 }}
-              >
-                {moment.image && (
-                  <>
-                    <div 
-                      className="absolute inset-0 w-full h-full bg-cover bg-center opacity-70 z-0 transition-transform duration-700 group-hover:scale-105"
-                      style={{ backgroundImage: `url('${moment.image}')` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
-                  </>
-                )}
-
-                <div className="flex justify-between items-start relative z-10">
-                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
-                    moment.image 
-                      ? 'text-white/90 group-hover:text-white' 
-                      : 'text-text-primary/75 group-hover:text-primary'
-                  }`}>
-                    {moment.title}
-                  </span>
-                  <div className={`p-1.5 rounded-md border ${
-                    moment.image 
-                      ? 'bg-black/40 border-white/10 text-white' 
-                      : 'bg-white border-border text-text-secondary'
-                  }`}>
-                    {moment.icon}
-                  </div>
-                </div>
-                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
-                  moment.image 
-                    ? 'text-white/80' 
-                    : 'text-text-secondary'
-                }`}>
-                  {moment.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 7 — MEMBER JOURNEYS */}
       <section className="section-spacing bg-background-secondary border-b border-border">

@@ -115,18 +115,11 @@ export default function PartnersPage() {
     { step: '5', title: 'Grow together', desc: 'Scale chapters and build long term relationships.' },
   ]
 
-  const gallery = [
-    { title: 'Flagship mixers', desc: 'Co-running weekend sprints and panels.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Users className="w-5 h-5 text-primary" /> },
-    { title: 'Signing meetups', desc: 'Setting chapter guidelines inside college hubs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <Landmark className="w-4 h-4 text-accent-blue" /> },
-    { title: 'Developer bootcamps', desc: 'Coordinating workshops inside university labs.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 border-l-4 border-l-accent-amber', icon: <Laptop className="w-4 h-4 text-accent-amber" /> },
-    { title: 'VC pitch panels', desc: 'Reviewing hackathon MVPs with startup partners.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-purple relative overflow-hidden', icon: <Rocket className="w-4 h-4 text-accent-purple" />, video: '/events-optimized/mentors_discussing_2.mp4' },
-    { title: 'Chapter mixer sittings', desc: 'Connecting students offline over coffee.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Compass className="w-4 h-4 text-text-secondary" /> },
-  ]
 
   return (
     <Layout>
       {/* HERO SECTION — ECOSYSTEM NETWORK */}
-      <section id="partners" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden py-20">
+      <section id="partners" className="relative min-h-[600px] flex items-center justify-center bg-white border-b border-border overflow-hidden pt-36 pb-20">
         {/* Node Network Visual Background SVG Overlay */}
         <div className="absolute inset-0 opacity-[0.15] select-none pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -574,7 +567,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* SECTION 11 — WHY PARTNER WITH CODEQUESTERS */}
+      {/* SECTION 11 — WHY PARTNER WITH CodeQuesters */}
       <section className="section-spacing bg-background-secondary border-b border-border">
         <div className="container-max">
           <motion.div
@@ -636,72 +629,6 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* SECTION 13 — PARTNER GALLERY */}
-      <section className="section-spacing bg-background-secondary border-b border-border">
-        <div className="container-max">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="badge mb-3">Initiative gallery</span>
-            <h2 className="text-3xl font-bold text-text-primary">
-              Building together
-            </h2>
-          </motion.div>
-
-          {/* Masonry gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px] md:auto-rows-[160px]">
-            {gallery.map((moment, index) => (
-              <motion.div
-                key={index}
-                className={`rounded-lg border border-border p-5 flex flex-col justify-between hover:border-primary/20 hover:shadow-sm duration-300 group cursor-pointer ${moment.class}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                whileHover={{ y: -4 }}
-              >
-                {moment.video && (
-                  <>
-                    <LazyVideo
-                      src={moment.video}
-                      className="absolute inset-0 w-full h-full object-cover opacity-60 z-0 transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-5 pointer-events-none" />
-                  </>
-                )}
-
-                <div className="flex justify-between items-start relative z-10">
-                  <span className={`text-xs uppercase font-bold tracking-wider transition-colors ${
-                    moment.video 
-                      ? 'text-white/90 group-hover:text-white' 
-                      : 'text-text-primary/75 group-hover:text-primary'
-                  }`}>
-                    {moment.title}
-                  </span>
-                  <div className={`p-1.5 rounded-md border ${
-                    moment.video 
-                      ? 'bg-black/40 border-white/10 text-white' 
-                      : 'bg-white border-border text-text-secondary'
-                  }`}>
-                    {moment.icon}
-                  </div>
-                </div>
-                <p className={`text-[11px] md:text-xs leading-relaxed font-normal relative z-10 ${
-                  moment.video 
-                    ? 'text-white/80' 
-                    : 'text-text-secondary'
-                }`}>
-                  {moment.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 14 — BECOME A PARTNER CTA */}
       <section className="section-spacing bg-white relative overflow-hidden">

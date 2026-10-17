@@ -165,7 +165,7 @@ export default function AboutPage() {
             >
               <div 
                 className="w-full h-full rounded-lg border border-border bg-cover bg-center p-6 flex flex-col justify-between group hover:border-primary transition-all duration-300 relative overflow-hidden"
-                style={{ backgroundImage: "url('/events/IMG_8400.jpg')" }}
+                style={{ backgroundImage: "url('/events/madhapur-event-3.jpg')" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
                 <div className="flex justify-between items-start relative z-10">
@@ -373,7 +373,7 @@ export default function AboutPage() {
             >
               <div 
                 className="w-full h-full rounded-lg border border-border bg-cover bg-center p-6 flex flex-col justify-between hover:border-primary/20 duration-300 relative overflow-hidden group"
-                style={{ backgroundImage: "url('/events/IMG_5834.jpg')" }}
+                style={{ backgroundImage: "url('/events/IMG_8404.jpg')" }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 z-0 transition-opacity duration-300 group-hover:from-black/90" />
                 <span className="text-[10px] uppercase font-bold tracking-wider text-white bg-accent-blue px-2 py-0.5 rounded w-fit relative z-10">2026/2027 Goals</span>

@@ -147,18 +147,14 @@ export default function EventsPage() {
   ]
 
   const gallery = [
-    { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-gradient-to-br from-primary/10 to-accent-blue/5 border-l-4 border-l-primary', icon: <Flame className="w-5 h-5 text-primary" /> },
-    { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-1 bg-gradient-to-br from-accent-blue/10 to-accent-blue/5 border-l-4 border-l-accent-blue', icon: <GraduationCap className="w-4 h-4 text-accent-blue" /> },
+    { title: 'Hackathon sprints', desc: 'Late night collaboration & debugging.', class: 'col-span-2 row-span-2 bg-black border-l-4 border-l-primary relative overflow-hidden', icon: <Flame className="w-5 h-5 text-primary" />, image: '/events/madhapur-event-2.jpg' },
+    { title: 'Technical workshops', desc: 'Hands-on training inside labs.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-blue relative overflow-hidden', icon: <GraduationCap className="w-4 h-4 text-accent-blue" />, image: '/events/IMG_5778.JPG' },
     { title: 'Winner moments', desc: 'Teams celebrating cash prize milestones.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-amber relative overflow-hidden', icon: <Trophy className="w-4 h-4 text-accent-amber" />, image: '/events/2nd_winner.JPG' },
-    { title: 'Peer networking', desc: 'Connecting developers over ideas.', class: 'col-span-2 sm:col-span-1 row-span-2 bg-gradient-to-br from-accent-purple/10 to-accent-purple/5 border-l-4 border-l-accent-purple', icon: <Users className="w-4 h-4 text-accent-purple" /> },
-    { title: 'Mentorship review', desc: 'Direct code architecture feedback.', class: 'col-span-2 row-span-1 bg-gradient-to-br from-background-tertiary to-background-secondary border-l-4 border-l-text-secondary', icon: <Sparkles className="w-4 h-4 text-text-secondary" /> },
   ]
 
   const winners = [
-    { name: 'Swarnima Shukla', role: 'Speaker, WTFigma Workshop', story: 'Ex-Product Designer at Meesho & Internshala who guided builders through UI/UX principles, design systems, and rapid prototyping in Figma.', icon: '🎨', image: '/events/wtfigma-workshop.png', tags: ['Product Design', 'Figma'] },
-    { name: 'Abhishek Parmani', role: 'Main Speaker, GitHub Workshop', story: 'Led the GitHub to Income workshop — turning open-source contributions into real career opportunities for 300+ students.', icon: '🏆', image: '/events/github_speaker_post.jpg', tags: ['GitHub', 'Open Source'] },
-    { name: 'GradSkills × CodeQuesters', role: 'Summership 2026 Organizers', story: 'Organized the Summer Internship Challenge 2026 — a full-day build, perform, and get-hired event at CS Coworking Spaces, Hyderabad.', icon: '💼', image: '/events/summership-2026.jpg', tags: ['Internship', 'AI'] },
-    { name: 'T Rishik Goud', role: 'Speaker, Supervity Workshop', story: 'AI Engineer at Supervity who ran a live build session — from zero to deployed AI Agent on screen, no theory, pure building.', icon: '🚀', image: '/events/supervity-workshop.png', tags: ['AI Agents', 'Workshop'] },
+    { name: 'Abhishek Parmani', role: 'Main Speaker, GitHub Workshop', story: 'Led the GitHub to Income workshop — turning open-source contributions into real career opportunities for 300+ students.', icon: '🏆', image: '/events/IMG_5835.jpg', tags: ['GitHub', 'Open Source'] },
+    { name: 'National Hackathon Winners', role: 'Grand Finale Champions', story: 'Teams building production-grade solutions under intense 36-hour sprint deadlines, presenting live to enterprise jury members.', icon: '🚀', image: '/events/3rd_winner.JPG', tags: ['CodeQuest', 'Champions'] },
   ]
 
   const categories = [
@@ -189,7 +185,7 @@ export default function EventsPage() {
   return (
     <Layout>
       {/* SECTION 1 — PAGE HERO */}
-      <section id="events" className="section-spacing pt-20 md:pt-28 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
+      <section id="events" className="section-spacing pt-32 md:pt-40 bg-gradient-to-b from-white via-background-secondary to-white overflow-hidden border-b border-border">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Col (7 cols): Header copy */}
@@ -212,19 +208,61 @@ export default function EventsPage() {
               </div>
             </div>
 
-            {/* Right Col (5 cols): Grid Collage placeholder */}
-            <div className="lg:col-span-5 h-[320px] relative">
+            {/* Right Col (5 cols): Grid Collage with real photos */}
+            <div className="lg:col-span-5 h-[340px] relative">
               <div className="grid grid-cols-2 gap-3 h-full">
-                <div className="rounded-lg border border-border bg-gradient-to-br from-primary/15 via-primary-dark/20 to-primary/5 p-4 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-primary-dark bg-primary-light px-2 py-0.5 rounded w-fit mb-2">Hack sprint</span>
-                  <h4 className="text-xs font-semibold text-text-primary">Collaborative hacking</h4>
-                </div>
-                <div className="grid grid-rows-2 gap-3">
-                  <div className="rounded-lg border border-border bg-gradient-to-br from-accent-blue/15 to-accent-blue/5 p-3 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                    <h4 className="text-xs font-semibold text-text-primary">Mentor panels</h4>
+                {/* Tall left card: Collaborative hacking */}
+                <div className="relative rounded-2xl border border-border overflow-hidden group shadow-sm hover:border-primary/50 transition-all duration-300">
+                  <img
+                    src="/events/IMG_5834.jpg"
+                    alt="Collaborative hacking at CodeQuesters hackathon"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: 'center 40%' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 z-10" />
+                  <div className="relative z-20 h-full p-4 flex flex-col justify-end">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded w-fit mb-1.5 backdrop-blur-sm">
+                      Hack sprint
+                    </span>
+                    <h4 className="text-sm font-semibold text-white">Collaborative hacking</h4>
+                    <p className="text-[11px] text-white/70 line-clamp-1 mt-0.5">Late night coding & debugging</p>
                   </div>
-                  <div className="rounded-lg border border-border bg-gradient-to-br from-accent-amber/15 to-accent-amber/5 p-3 flex flex-col justify-end group hover:border-primary transition-all duration-300">
-                    <h4 className="text-xs font-semibold text-text-primary">Winner awards</h4>
+                </div>
+
+                {/* Right col: 2 stacked cards */}
+                <div className="grid grid-rows-2 gap-3">
+                  {/* Top: Mentor panels */}
+                  <div className="relative rounded-2xl border border-border overflow-hidden group shadow-sm hover:border-primary/50 transition-all duration-300">
+                    <img
+                      src="/events/IMG_8410.jpg"
+                      alt="Mentor panel evaluation"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: 'center 30%' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 z-10" />
+                    <div className="relative z-20 h-full p-3.5 flex flex-col justify-end">
+                      <span className="text-[9px] uppercase font-bold tracking-wider text-sky-400 bg-sky-950/80 border border-sky-500/30 px-1.5 py-0.5 rounded w-fit mb-1 backdrop-blur-sm">
+                        Mentorship
+                      </span>
+                      <h4 className="text-xs font-semibold text-white">Mentor panels</h4>
+                    </div>
+                  </div>
+
+                  {/* Bottom: Winner awards */}
+                  <div className="relative rounded-2xl border border-border overflow-hidden group shadow-sm hover:border-primary/50 transition-all duration-300">
+                    <img
+                      src="/events/1st_winner.JPG"
+                      alt="CodeQuest 2026 Winner awards"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ objectPosition: 'center 25%' }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 z-10" />
+                    <div className="relative z-20 h-full p-3.5 flex flex-col justify-end">
+                      <span className="text-[9px] uppercase font-bold tracking-wider text-amber-400 bg-amber-950/80 border border-amber-500/30 px-1.5 py-0.5 rounded w-fit mb-1 backdrop-blur-sm">
+                        Prize pool
+                      </span>
+                      <h4 className="text-xs font-semibold text-white">Winner awards</h4>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -282,7 +320,7 @@ export default function EventsPage() {
             {/* Banner Left (5 cols) */}
             <div
               className="lg:col-span-5 min-h-[240px] bg-cover bg-center p-8 flex flex-col justify-between text-white relative overflow-hidden"
-              style={{ backgroundImage: "url('/events/IMG_8401.jpg')" }}
+              style={{ backgroundImage: "url('/events/IMG_5779.JPG')" }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
               <span className="self-start text-[10px] uppercase font-bold tracking-wider text-primary bg-white px-2.5 py-1 rounded shadow-sm relative z-10">
@@ -423,32 +461,39 @@ export default function EventsPage() {
                 key={idx}
                 className="bg-[#080d0a] border border-neutral-900 rounded-lg overflow-hidden flex flex-col justify-between hover:border-primary/35 transition-all duration-300 shadow-sm hover:shadow-md"
               >
-                {/* Poster container */}
-                <div className="relative w-full aspect-[4/5] bg-neutral-950 overflow-hidden border-b border-neutral-900">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-103"
-                  />
-                  {/* Floating Completed Badge */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-emerald-500/90 text-white text-[10px] font-bold px-2.5 py-1 rounded backdrop-blur-sm shadow-sm">
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
+                {/* Card Header: Completed & Tags */}
+                <div className="flex items-center justify-between gap-2 px-4 py-3 bg-neutral-950/80 border-b border-neutral-900">
+                  <div className="flex items-center gap-1.5 text-emerald-400 text-[11px] font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>Completed</span>
                   </div>
-                  {/* Floating Tags */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 flex-wrap justify-end">
                     {event.tags.map((tag, tIdx) => (
                       <span
                         key={tIdx}
-                        className="bg-black/65 text-white text-[10px] font-semibold px-2.5 py-1 rounded backdrop-blur-sm border border-neutral-800/40"
+                        className="bg-neutral-900/90 text-neutral-300 text-[10px] font-medium px-2 py-0.5 rounded border border-neutral-800"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
+                </div>
+
+                {/* Poster container with full aspect containment and ambient blurred backdrop */}
+                <div className="relative w-full aspect-[4/5] bg-black overflow-hidden border-b border-neutral-900 flex items-center justify-center group">
+                  {/* Ambient backdrop */}
+                  <img
+                    src={event.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-125 pointer-events-none"
+                  />
+                  {/* Fully visible poster */}
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="relative z-10 max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
                 </div>
 
                 {/* Card Content details */}
@@ -567,7 +612,7 @@ export default function EventsPage() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6">
             {winners.map((winner, idx) => (
               <motion.div
                 key={idx}

@@ -123,12 +123,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div variants={itemVariants}>
-            <span className="liquid-glass inline-flex items-center gap-2 rounded-full px-5 py-2 text-white/90 text-xs font-medium tracking-wide mb-8">
-              🚀 Building India&apos;s next generation of builders
-            </span>
-          </motion.div>
 
           {/* Main heading */}
           <motion.h1

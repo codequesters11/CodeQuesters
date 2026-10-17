@@ -25,7 +25,7 @@ export default function Highlights() {
       description: 'The excitement of building something that wins.',
       icon: <Trophy className="w-4 h-4 text-accent-amber" />,
       class: 'col-span-2 sm:col-span-1 row-span-2 bg-black border-l-4 border-l-accent-amber relative overflow-hidden',
-      image: '/events/1st_winner.JPG',
+      image: '/events/IMG_1686.JPG',
     },
     {
       title: 'Keynote stage',
@@ -39,14 +39,14 @@ export default function Highlights() {
       description: 'Connecting over pizza, caffeine, and code architecture details.',
       icon: <Coffee className="w-4 h-4 text-text-secondary" />,
       class: 'col-span-2 row-span-1 bg-black border-l-4 border-l-text-secondary relative overflow-hidden',
-      image: '/events/IMG_8404.jpg',
+      image: '/events/IMG_8401.jpg',
     },
     {
-      title: 'Closing group photos',
-      description: 'Memories of a weekend full of engineering and learning.',
+      title: 'Executive mentor panels',
+      description: 'Reviewing hackathon MVPs with startup partners.',
       icon: <Camera className="w-4 h-4 text-primary" />,
       class: 'col-span-2 sm:col-span-1 row-span-1 bg-black border-l-4 border-l-primary relative overflow-hidden',
-      image: '/events/IMG_5835.jpg',
+      video: '/events-optimized/mentors_discussing_2.mp4',
     },
   ]
 
