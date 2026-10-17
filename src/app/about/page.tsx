@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Layout from '@components/shared/Layout'
+import LazyVideo from '@components/shared/LazyVideo'
 import AboutHero from '@components/sections/AboutHero'
 import PhilosophySection from '@components/sections/PhilosophySection'
 import InteractiveTeam from '@components/sections/InteractiveTeam'
@@ -156,25 +157,30 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Col (5 cols): Grid visual placeholder */}
+            {/* Right Col (5 cols): Live Event Video Snapshot */}
             <motion.div 
               className="lg:col-span-5 h-[280px]"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div 
-                className="w-full h-full rounded-lg border border-border bg-cover bg-center p-6 flex flex-col justify-between group hover:border-primary transition-all duration-300 relative overflow-hidden"
-                style={{ backgroundImage: "url('/events/madhapur-event-3.jpg')" }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 z-0" />
-                <div className="flex justify-between items-start relative z-10">
-                  <span className="text-[9px] uppercase font-bold tracking-wider text-white bg-primary px-2 py-0.5 rounded">Ecosystem snapshot</span>
-                  <Users className="w-5 h-5 text-white" />
-                </div>
-                <div className="relative z-10">
-                  <h4 className="text-sm font-semibold text-white mb-1">Collaborative workspace</h4>
-                  <p className="text-[11px] text-white/80 leading-normal font-normal">Students building code, debugging APIs, and deploying applications together.</p>
+              <div className="w-full h-full rounded-2xl border border-border overflow-hidden relative group hover:border-primary transition-all duration-300">
+                <LazyVideo
+                  src="/events-optimized/hackathon_hall_audience.mp4"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 z-10" />
+                <div className="relative z-20 h-full p-6 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <span className="text-[9px] uppercase font-bold tracking-wider text-white bg-primary px-2 py-0.5 rounded backdrop-blur-sm">
+                      Live event loop
+                    </span>
+                    <Users className="w-5 h-5 text-white/90" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white mb-1">Collaborative workspace</h4>
+                    <p className="text-[11px] text-white/80 leading-normal font-normal">Students building code, debugging APIs, and deploying applications together.</p>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
 import Layout from '@components/shared/Layout'
+import LazyVideo from '@components/shared/LazyVideo'
 import {
   Calendar,
   MapPin,
@@ -211,21 +212,19 @@ export default function EventsPage() {
             {/* Right Col (5 cols): Grid Collage with real photos */}
             <div className="lg:col-span-5 h-[340px] relative">
               <div className="grid grid-cols-2 gap-3 h-full">
-                {/* Tall left card: Collaborative hacking */}
+                {/* Tall left card: Live Stage Pitches video loop */}
                 <div className="relative rounded-2xl border border-border overflow-hidden group shadow-sm hover:border-primary/50 transition-all duration-300">
-                  <img
-                    src="/events/IMG_5834.jpg"
-                    alt="Collaborative hacking at CodeQuesters hackathon"
+                  <LazyVideo
+                    src="/events-optimized/student_pitch_stage.mp4"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ objectPosition: 'center 40%' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 z-10" />
                   <div className="relative z-20 h-full p-4 flex flex-col justify-end">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2 py-0.5 rounded w-fit mb-1.5 backdrop-blur-sm">
-                      Hack sprint
+                      Live pitches
                     </span>
-                    <h4 className="text-sm font-semibold text-white">Collaborative hacking</h4>
-                    <p className="text-[11px] text-white/70 line-clamp-1 mt-0.5">Late night coding & debugging</p>
+                    <h4 className="text-sm font-semibold text-white">Student demos</h4>
+                    <p className="text-[11px] text-white/70 line-clamp-1 mt-0.5">Live pitches to mentor jury</p>
                   </div>
                 </div>
 
