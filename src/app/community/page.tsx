@@ -108,46 +108,57 @@ export default function CommunityPage() {
     },
   ]
 
-  const benefits = [
+  interface BenefitItem {
+    title: string
+    desc: string
+    bannerGrad: string
+    tag: string
+    video?: string
+    image?: string
+  }
+
+  const benefits: BenefitItem[] = [
     {
       title: 'Access to opportunities',
       desc: 'Learn about paid internships, freelance contracts, and startup developer roles shared directly by our partners.',
       bannerGrad: 'from-primary/10 via-primary-dark/20 to-primary/5',
-      tag: 'Career pipeline',
-      image: '/events/IMG_5834.jpg',
+      tag: 'Partner Opportunities & Registration',
+      video: '/events-optimized/event_registration_opportunities.mp4',
     },
     {
       title: 'Learn from experts',
       desc: 'Join weekly AMAs, hands-on technical masterclasses, and code architecture review sessions led by senior engineers.',
       bannerGrad: 'from-accent-blue/15 to-accent-blue/5',
-      tag: 'Tech masterclass',
-      video: '/events-optimized/hackathon_hall_pan.mp4',
+      tag: 'Architecture Mentorship & Review',
+      video: '/events-optimized/mentor_architecture_review.mp4',
     },
     {
       title: 'Build with others',
       desc: 'Form teams for weekend hackathons, match with product managers, or find co-founders to build functional MVPs.',
       bannerGrad: 'from-accent-purple/15 to-accent-purple/5',
-      tag: 'Peer collaboration',
-      video: '/events-optimized/builders_networking_lounge.mp4',
+      tag: 'Team Collaboration & Ideation',
+      video: '/events-optimized/hackathon_team_collaborating.mp4',
     },
     {
       title: 'Participate in events',
       desc: 'Get exclusive early-bird invites to national hack sprints, campus mixer meetups, and code sprints.',
       bannerGrad: 'from-accent-amber/15 to-accent-amber/5',
-      tag: 'National sprints',
-      image: '/events/madhapur-event-3.jpg',
+      tag: 'Live Hackathon Sprints',
+      video: '/events-optimized/hackathon_hall_sprint.mp4',
     },
     {
       title: 'Gain visibility',
       desc: 'Showcase your code milestones to hiring partners and earn podium listings in the national Hall of Fame.',
       bannerGrad: 'from-primary/10 to-accent-blue/10',
-      tag: 'Ecosystem honors',
+      tag: 'Partner Showcase & Podium',
+      video: '/events-optimized/partners_visibility_podium.mp4',
     },
     {
       title: 'Grow your network',
       desc: 'Build long-lasting connections with ambitious student developers, mentors, and founders across engineering colleges.',
       bannerGrad: 'from-background-tertiary to-background-secondary',
-      tag: 'Campus chapters',
+      tag: 'Developer Networking Circles',
+      video: '/events-optimized/community_networking_circle.mp4',
     },
   ]
 
