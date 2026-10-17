@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Layout from '@components/shared/Layout'
+import LazyVideo from '@components/shared/LazyVideo'
 import EcosystemMap from '@components/sections/EcosystemMap'
 import { 
   Users, 
@@ -112,31 +113,41 @@ export default function CommunityPage() {
       title: 'Access to opportunities',
       desc: 'Learn about paid internships, freelance contracts, and startup developer roles shared directly by our partners.',
       bannerGrad: 'from-primary/10 via-primary-dark/20 to-primary/5',
+      tag: 'Career pipeline',
+      image: '/events/IMG_5834.jpg',
     },
     {
       title: 'Learn from experts',
       desc: 'Join weekly AMAs, hands-on technical masterclasses, and code architecture review sessions led by senior engineers.',
       bannerGrad: 'from-accent-blue/15 to-accent-blue/5',
+      tag: 'Tech masterclass',
+      video: '/events-optimized/hackathon_hall_pan.mp4',
     },
     {
       title: 'Build with others',
       desc: 'Form teams for weekend hackathons, match with product managers, or find co-founders to build functional MVPs.',
       bannerGrad: 'from-accent-purple/15 to-accent-purple/5',
+      tag: 'Peer collaboration',
+      video: '/events-optimized/builders_networking_lounge.mp4',
     },
     {
       title: 'Participate in events',
       desc: 'Get exclusive early-bird invites to national hack sprints, campus mixer meetups, and code sprints.',
       bannerGrad: 'from-accent-amber/15 to-accent-amber/5',
+      tag: 'National sprints',
+      image: '/events/madhapur-event-3.jpg',
     },
     {
       title: 'Gain visibility',
       desc: 'Showcase your code milestones to hiring partners and earn podium listings in the national Hall of Fame.',
       bannerGrad: 'from-primary/10 to-accent-blue/10',
+      tag: 'Ecosystem honors',
     },
     {
       title: 'Grow your network',
       desc: 'Build long-lasting connections with ambitious student developers, mentors, and founders across engineering colleges.',
       bannerGrad: 'from-background-tertiary to-background-secondary',
+      tag: 'Campus chapters',
     },
   ]
 
@@ -363,11 +374,45 @@ export default function CommunityPage() {
                     <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-normal">{benefit.desc}</p>
                   </div>
 
-                  {/* Graphic Column */}
-                  <div className={`lg:col-span-5 h-[200px] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <div className={`w-full h-full rounded-lg border border-border bg-gradient-to-br ${benefit.bannerGrad} p-6 flex flex-col justify-end group hover:border-primary transition-all duration-300`}>
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-text-primary/75 bg-white px-2 py-0.5 rounded w-fit">Benefit focus</span>
-                      <h4 className="text-xs font-semibold text-text-primary mt-2 capitalize">{benefit.title}</h4>
+                  {/* Graphic / Media Column */}
+                  <div className={`lg:col-span-5 h-[230px] md:h-[250px] ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <div className={`w-full h-full rounded-2xl border border-border bg-gradient-to-br ${benefit.bannerGrad} overflow-hidden relative group hover:border-primary transition-all duration-300 shadow-sm flex flex-col justify-end p-6`}>
+                      {benefit.video && (
+                        <>
+                          <LazyVideo
+                            src={benefit.video}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 z-10" />
+                        </>
+                      )}
+
+                      {benefit.image && (
+                        <>
+                          <img
+                            src={benefit.image}
+                            alt={benefit.title}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            style={{ objectPosition: 'center 35%' }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 z-10" />
+                        </>
+                      )}
+
+                      <div className="relative z-20">
+                        <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded w-fit inline-block mb-1.5 backdrop-blur-sm ${
+                          benefit.video || benefit.image
+                            ? 'text-emerald-400 bg-emerald-950/80 border border-emerald-500/30'
+                            : 'text-text-primary/75 bg-white shadow-xs'
+                        }`}>
+                          {benefit.tag || 'Benefit focus'}
+                        </span>
+                        <h4 className={`text-sm font-semibold capitalize ${
+                          benefit.video || benefit.image ? 'text-white' : 'text-text-primary'
+                        }`}>
+                          {benefit.title}
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 </div>
